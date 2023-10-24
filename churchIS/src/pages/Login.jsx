@@ -1,0 +1,130 @@
+import { useState, useEffect } from "react"
+import React from 'react'
+import { Button } from "../components"
+import { Link } from 'react-router-dom';
+import  logo  from '../assets/saving.png'
+
+
+const Login = () => {
+
+  const [scisuserid, setScisuserid] = useState('')
+  const [password, setPassword] = useState('');
+  const currentColor = '#000'; 
+
+  
+  const handleUsernameChange = (e) => {
+    setScisuserid(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Perform login logic here using the scisuserid and password values
+    console.log('userid:', scisuserid);
+    console.log('Password:', password);
+
+    const body = {
+      email: scisuserid,
+      password: password,
+    }
+
+    console.log(body);
+
+    try {
+      const response = await fetch('http://localhost:3300/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (response.ok) {
+        // Login successful, handle the response or redirect
+        console.log('Login successful');
+        // You can redirect the user here if needed
+      } else {
+        // Login failed, handle the error
+        console.error('Login failed');
+        // You can display an error message to the user
+      }
+    } catch (error) {
+      console.error('An error occurred', error);
+      // Handle network or other errors here
+    }
+
+  };
+
+
+  
+  return (
+    <div className='flex flex-wrap justify-center mt-5'>
+      <div className='w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 shadow-lg'>
+        <div className='flex justify-center'>
+          <p className='text-xl font-semibold justify-center'>Welcome to Michango</p>
+        </div>
+        <div className='mt-5'>
+        <div className="flex w-full justify-center p-3">
+          <img className='h-48' src={logo} alt='' />
+          </div>
+          <div className='mt-8'>
+          <div className="flex w-full justify-center flex-col p-3">
+          <p className='font-semibold text-lg justify-center'>Please Login to Acess dashboard</p>
+          <p className='text-gray-400 text-sm justify-center'>contact Administrator to get access to restricetd features</p>
+          </div>
+          
+            <form onSubmit={handleSubmit}>
+              <input
+                className='w-[90%] bg-slate-200  dark:text-gray-200 dark:bg-input-gray  rounded-2xl p-3 mt-4 mb-1 ml-4 mr-4'
+                placeholder='User id'
+                value={scisuserid}
+                onChange={handleUsernameChange}
+              />
+
+              <input
+                className='w-[90%] bg-slate-200  dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
+                placeholder='Password'
+                type='password'
+                value={password}
+                onChange={handlePasswordChange}
+              />
+
+              <div className='mt-4 ' >
+               
+
+                  <input
+                  value='Login'
+                  type="submit"
+                  className="w-full bg-lime-400 p-3 rounded-lg"
+                  />
+                  
+
+
+              
+
+                {/* <Button /> is the og component   */}
+
+
+              </div>
+            </form>
+
+            <div className='flex w-full justify-center '>
+              <p className='text-gray-400 text-sm m-auto p-3 justify-center w-full'>
+                for forgotten password, please contact the Administrator or{' '}
+                <Link to={'/forgotpassword'} className='underline'>
+                  click here
+                </Link>{' '}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Login

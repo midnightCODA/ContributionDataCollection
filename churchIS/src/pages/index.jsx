@@ -1,0 +1,7 @@
+export { default as AddData } from './AddData'
+export { default as AdminDashboard } from './AdminDashboard'
+export { default as Login } from './Login'
+export { default as ManageUsers } from './ManageUsers'
+export { default as ViewData } from './ViewData'
+export { default as ChangePassword } from './ChangePassword'
+export { default as CreateUser } from './CreateUser'
