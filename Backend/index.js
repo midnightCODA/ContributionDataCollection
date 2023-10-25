@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3300
 const cors = require('cors');
+const jwt = require('jsonwebtoken')
 const { default: mongoose } = require('mongoose');
 require('dotenv').config();
 const User = require('./models/users.model');
