@@ -96,7 +96,7 @@ const AddData = () => {
           <div className='mt-5'>
             <div className='mt-8'>
               <div className="flex w-full justify-center flex-col p-3">
-                <p className='font-semibold text-lg justify-center mb-8'>Add contributions</p>
+                <p className='font-semibold text-lg justify-center mb-8'>Add contribution</p>
                 <p className='text-gray-400 text-sm justify-center'>contact Administrator to get access to restricetd features</p>
               </div>
 
@@ -110,13 +110,13 @@ const AddData = () => {
               <InputField label="Contact" type="text" value={contact} onChange={handlecontactChange} required />
               <InputField label="Amount" type="text" value={amount} onChange={handleamountChange} required />
 
-                <div className='mt-4 ' >
+                <div className='mt-4 flex justify-center ' >
 
 
                   <input
-                    value='Add contributions'
+                    value='Add contribution'
                     type="submit"
-                    className="w-full bg-lime-400 p-3 mt-4 rounded-lg"
+                    className="w-[50%] orange_bg_gradient  text-white font-bold  p-3 mt-4 rounded-lg"
                   />
 
 

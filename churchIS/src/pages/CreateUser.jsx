@@ -94,11 +94,11 @@ const CreateUser = () => {
                   onChange={(e) => handleInputChange(e, setPassword)}
                 />
 
-                <div className='mt-4'>
+                <div className=' mt-4 flex justify-center'>
                   <input
                     value='Create User'
                     type="submit"
-                    className="w-full bg-lime-400 p-3 mt-4 rounded-lg"
+                    className="w-[50%] orange_bg_gradient  text-white font-bold  p-3 mt-4 rounded-lg"
                   />
                 </div>
               </form>

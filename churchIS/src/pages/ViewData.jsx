@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Header, Navbar } from '../components'
+import { Header, Navbar, PublicNav } from '../components'
 import { GridComponent, ColumnsDirective, ColumnDirective, Resize, Selection, ExcelExport, Sort, ContextMenu, Filter, Toolbar, Page, Search, Edit, Inject } from '@syncfusion/ej2-react-grids'
 import '../App.css'
 import { registerLicense } from '@syncfusion/ej2-base';
@@ -54,15 +54,33 @@ const ViewData = () => {
 
     return (
 
-        <main className='relative'>
+        <main className='relative '>
+
+             <div className='gradient' />
+
             <div className='flex py-5'>
-                <Navbar />
+                <PublicNav />
             </div>
 
-            <div className='flex justify-center w-full'>
+            <div className=' w-full flex justify-center items-center flex-col mt-8'>
+    
+            <h1 className='head_text'>
+                Welcome to contributions collection App <br className='max-md:hidden' />
+                <span className='orange_gradient '>Michango Yetu</span>
+              </h1>
+              
+              <br/>
+              <h2 className='desc'>
+                    Here are our contributions
+              </h2>
+            
+            
+            </div>
+
+            <div className='flex justify-center w-200 m-auto md:w-full '>
 
                 <div className='m-2 md:m-10 md:p-10 dark:text-gray-200 dark:bg-secondary-dark-bg rounded-3xl z-1000 shadow-lg'>
-                    <Header category="Public" title="View Contributions" />
+                    
                     <GridComponent
                         dataSource={data}
                         allowSorting

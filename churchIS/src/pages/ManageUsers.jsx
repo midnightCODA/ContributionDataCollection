@@ -53,10 +53,10 @@ const ManageUsers = () => {
                 <Navbar />
             </div>
 
-            <div className='flex justify-center w-full'>
+            <div className='flex justify-center w-200 m-auto md:w-full'>
 
                 <div className='m-2 md:m-10 md:p-10 dark:text-gray-200 dark:bg-secondary-dark-bg rounded-3xl z-1000 shadow-lg'>
-                    <Header category="Public" title="Edit your users" />
+                    <Header title="Edit your users" />
                     <GridComponent
                         dataSource={data}
                         allowSorting

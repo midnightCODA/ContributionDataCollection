@@ -62,19 +62,16 @@ const Login = () => {
 
   
   return (
-    <div className='flex flex-wrap justify-center mt-5'>
-      <div className='w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 shadow-lg'>
+    <div className='flex flex-wrap justify-center '>
+      <div className='w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 mt-20 shadow-lg'>
         <div className='flex justify-center'>
-          <p className='text-xl font-semibold justify-center'>Welcome to Michango</p>
+          <p className='text-xl font-semibold justify-center'>Welcome to <span className="orange_gradient">MichangoYetu</span></p>
         </div>
         <div className='mt-5'>
-        <div className="flex w-full justify-center p-3">
-          <img className='h-48' src={logo} alt='' />
-          </div>
+        
           <div className='mt-8'>
           <div className="flex w-full justify-center flex-col p-3">
           <p className='font-semibold text-lg justify-center'>Please Login to Acess dashboard</p>
-          <p className='text-gray-400 text-sm justify-center'>contact Administrator to get access to restricetd features</p>
           </div>
           
             <form onSubmit={handleSubmit}>
@@ -99,7 +96,7 @@ const Login = () => {
                   <input
                   value='Login'
                   type="submit"
-                  className="w-full bg-lime-400 p-3 rounded-lg"
+                  className="w-full orange_bg_gradient font-bold  text-white p-3 rounded-lg"
                   />
                   
 
