@@ -25,7 +25,7 @@ const CreateUser = () => {
     console.log(body);
 
     try {
-      const response = await fetch('http://localhost:3300/register', {
+      const response = await fetch('https://churchisbackend.onrender.com/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

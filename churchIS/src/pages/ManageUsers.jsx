@@ -19,7 +19,7 @@ const ManageUsers = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('http://localhost:3300/allusers', {
+            const response = await fetch('https://churchisbackend.onrender.com/allusers', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',

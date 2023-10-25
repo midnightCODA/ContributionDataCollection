@@ -22,7 +22,7 @@ const ViewData = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('http://localhost:3300/allcontributions', {
+            const response = await fetch('https://churchisbackend.onrender.com/allcontributions', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',

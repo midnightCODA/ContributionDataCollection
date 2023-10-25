@@ -37,6 +37,37 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
+// APPLICATION DASHBOARD 
+app.get('/analytics', async (req, res) => {
+    try {
+        // Assuming you have models named "User" and "Contribution"
+        const userCount = await User.countDocuments();
+        const contributionCount = await Contribution.countDocuments();
+        const totalContributionAmount = await Contribution.aggregate([
+            {
+                $group: {
+                    _id: null,
+                    totalAmount: { $sum: '$amount' }
+                }
+            }
+        ]);
+
+        if (userCount !== null && contributionCount !== null && totalContributionAmount.length > 0) {
+            const { totalAmount } = totalContributionAmount[0];
+            res.status(200).json({ userCount, contributionCount, totalAmount });
+        } else {
+            res.status(404).json({ message: 'No users, contributions, or contribution amounts found' });
+        }
+    } catch (error) {
+        console.error('An error occurred', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+
+
+
+
 //USERS CRUD
 
 //get all users
@@ -55,6 +86,8 @@ app.get('/allusers', async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 });
+
+
 
 // create users
 app.post('/register', async (req, res) => {

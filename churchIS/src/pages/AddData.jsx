@@ -60,7 +60,7 @@ const AddData = () => {
     console.log(body);
   
     try {
-      const response = await fetch('http://localhost:3300/createcontribution', {
+      const response = await fetch('https://churchisbackend.onrender.com/createcontribution', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

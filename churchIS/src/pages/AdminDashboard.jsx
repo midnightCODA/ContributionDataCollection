@@ -12,7 +12,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3300/analytics', {
+        const response = await fetch('https://churchisbackend.onrender.com/analytics', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
