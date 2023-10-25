@@ -44,10 +44,10 @@ const CreateUser = () => {
       });
 
       if (response.ok) {
-        console.log('User creation successful');
+        alert('User creation successful');
         // Redirect the user if needed
       } else {
-        console.error('User creation failed');
+        alert('User creation failed');
         // Display an error message to the user
       }
     } catch (error) {

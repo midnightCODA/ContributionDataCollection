@@ -80,10 +80,10 @@ const AddData = () => {
       });
   
       if (response.ok) {
-        console.log('contribution added successfully');
+        alert('contribution added successfully');
         // You can redirect the user here if needed
       } else {
-        console.error('contribution failed');
+        alert('contribution failed');
         // You can display an error message to the user
       }
     } catch (error) {
@@ -127,7 +127,7 @@ const AddData = () => {
                   <input
                     value='Add contribution'
                     type="submit"
-                    className="w-[50%] orange_bg_gradient  text-white font-bold  p-3 mt-4 rounded-lg"
+                    className="w-[70%] orange_bg_gradient  text-white font-bold  p-3 mt-4 rounded-lg"
                   />
 
 
