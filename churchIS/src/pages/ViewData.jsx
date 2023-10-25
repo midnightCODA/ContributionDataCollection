@@ -66,7 +66,7 @@ const ViewData = () => {
     
             <h1 className='head_text'>
                 Welcome to contributions collection App <br className='max-md:hidden' />
-                <span className='orange_gradient '>Michango Yetu</span>
+                <span className='orange_gradient'>Michango Yetu</span>
               </h1>
               
               <br/>
@@ -87,17 +87,17 @@ const ViewData = () => {
                         allowPaging
                         toolbar={['Search', 'ExcelExport']}
                         allowExcelExport={true}
-                        width="auto"
+                        // width='380px'
                         toolbarClick={toolbarClick}
                         ref={g => grid = g}
                     >
                         <ColumnsDirective
                         >
-                            <ColumnDirective field='full_name' width='100'  />
-                            <ColumnDirective field='amount' width='100'  />
-                            <ColumnDirective field='contact' width='100' />
-                            <ColumnDirective field='gender' width='100' />
-                            <ColumnDirective field='title' width='100' />
+                            <ColumnDirective field='full_name'   />
+                            <ColumnDirective field='amount'   />
+                            <ColumnDirective field='contact'  />
+                            <ColumnDirective field='gender'  />
+                            <ColumnDirective field='title'  />
                         </ColumnsDirective>
                         <Inject services={[Page, Search, Toolbar, Edit, Sort, Filter, ExcelExport]} />
                     </GridComponent>

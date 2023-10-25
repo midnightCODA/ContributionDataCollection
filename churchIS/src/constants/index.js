@@ -1,6 +1,6 @@
 
 export const navLinks = [
-    { href: "/AdminDashboard", label: "Dashboard" },
+    { href: "/dashboard", label: "Dashboard" },
     { href: "/Adddata", label: "Add data" },
     { href: "/createUser", label: "Create User" },
     { href: "/manageUsers", label: "Manage Users" },

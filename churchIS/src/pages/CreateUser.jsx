@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "../components";
 import { Link } from 'react-router-dom';
 import logo from '../assets/saving.png';
 import {Navbar} from "../components";
 
 const CreateUser = () => {
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if(token){
+        const user = jwt.decode(token)
+        if(!user){
+          localStorage.removeItem('token')
+          window.location.href = '/'
+        } else {
+          
+        }
+    }
+  }, [])
+
+
   const [scisuserid, setScisuserid] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');

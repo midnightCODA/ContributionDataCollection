@@ -177,13 +177,23 @@ app.post('/login', (req, res) => {
     console.log(req.body);
 
     try {
-        const finduser = User.findOne({
+        const user = User.findOne({
             email: req.body.email,
             password: req.body.password
         })
 
-        if (finduser) {
-            return res.json({ status: 'ok', user: true })
+        if (user) {
+
+            const token = jwt.sign(
+                {
+                    email: user.email,
+                    full_name: user.full_name
+                },
+                'secret123'
+            )
+
+            // HERE WE RETURN THE TOKEN INSTEAD OF USER DATA
+            return res.json({ status: 'ok', user: token })
         } else {
             return res.json({ status: 'error', user: true })
         }

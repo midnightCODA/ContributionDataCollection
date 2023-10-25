@@ -2,16 +2,16 @@ import { useState, useEffect } from "react"
 import React from 'react'
 import { Button } from "../components"
 import { Link } from 'react-router-dom';
-import  logo  from '../assets/saving.png'
+import logo from '../assets/saving.png'
 
 
 const Login = () => {
 
   const [scisuserid, setScisuserid] = useState('')
   const [password, setPassword] = useState('');
-  const currentColor = '#000'; 
+  const currentColor = '#000';
 
-  
+
   const handleUsernameChange = (e) => {
     setScisuserid(e.target.value);
   };
@@ -43,14 +43,15 @@ const Login = () => {
         body: JSON.stringify(body),
       });
 
-      if (response.ok) {
-        // Login successful, handle the response or redirect
-        console.log('Login successful');
-        // You can redirect the user here if needed
+      const data = await response.json();
+
+      if (data.user) {
+
+        localStorage.setItem('token', data.user)
+        window.location.href = '/dashboard'
+
       } else {
-        // Login failed, handle the error
-        console.error('Login failed');
-        // You can display an error message to the user
+        alert('please check your user and password')
       }
     } catch (error) {
       console.error('An error occurred', error);
@@ -60,7 +61,7 @@ const Login = () => {
   };
 
 
-  
+
   return (
     <div className='flex flex-wrap justify-center '>
       <div className='w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 mt-20 shadow-lg'>
@@ -68,12 +69,12 @@ const Login = () => {
           <p className='text-xl font-semibold justify-center'>Welcome to <span className="orange_gradient">MichangoYetu</span></p>
         </div>
         <div className='mt-5'>
-        
+
           <div className='mt-8'>
-          <div className="flex w-full justify-center flex-col p-3">
-          <p className='font-semibold text-lg justify-center'>Please Login to Acess dashboard</p>
-          </div>
-          
+            <div className="flex w-full justify-center flex-col p-3">
+              <p className='font-semibold text-lg justify-center'>Please Login to Acess dashboard</p>
+            </div>
+
             <form onSubmit={handleSubmit}>
               <input
                 className='w-[90%] bg-slate-200  dark:text-gray-200 dark:bg-input-gray  rounded-2xl p-3 mt-4 mb-1 ml-4 mr-4'
@@ -91,17 +92,17 @@ const Login = () => {
               />
 
               <div className='mt-4 ' >
-               
 
-                  <input
+
+                <input
                   value='Login'
                   type="submit"
                   className="w-full orange_bg_gradient font-bold  text-white p-3 rounded-lg"
-                  />
-                  
+                />
 
 
-              
+
+
 
                 {/* <Button /> is the og component   */}
 

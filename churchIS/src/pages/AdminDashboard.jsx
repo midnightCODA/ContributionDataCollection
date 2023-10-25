@@ -1,40 +1,57 @@
 import React, {useEffect, useState} from 'react'
 import { Header, Navbar } from '../components'
 import { dataSourceChanged } from '@syncfusion/ej2-react-grids';
+import jwt from 'jsonwebtoken';
 
 
 
 const AdminDashboard = () => {
 
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    
+    if(token){
+        const user = jwt.decode(token)
+        if(!user){
+          localStorage.removeItem('token')
+          window.location.href = '/'
+        } else {
+
+          const fetchData = async () => {
+            try {
+              const response = await fetch('https://churchisbackend.onrender.com/analytics', {
+                method: 'GET',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              });
+      
+              if (response.ok) {
+                const responseData = await response.json();
+                setData(responseData);
+                console.log(responseData);
+              } else {
+                console.error('Failed to fetch data');
+              }
+            } catch (error) {
+              console.error('An error occurred', error);
+            } finally {
+              setLoading(false);
+            }
+          };
+    
+          fetchData();
+
+        }
+    }
+  }, [])
+  
+
+
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://churchisbackend.onrender.com/analytics', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        if (response.ok) {
-          const responseData = await response.json();
-          setData(responseData);
-          console.log(responseData);
-        } else {
-          console.error('Failed to fetch data');
-        }
-      } catch (error) {
-        console.error('An error occurred', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   return (
 

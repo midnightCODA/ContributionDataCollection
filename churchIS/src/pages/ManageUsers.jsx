@@ -5,6 +5,21 @@ import { ColumnDirective, ColumnsDirective, Filter, GridComponent, Group, Toolba
 
 const ManageUsers = () => {
 
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if(token){
+        const user = jwt.decode(token)
+        if(!user){
+          localStorage.removeItem('token')
+          window.location.href = '/'
+        } else {
+          
+        }
+    }
+  }, [])
+
+  
+
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -75,6 +90,7 @@ const ManageUsers = () => {
                             <ColumnDirective field='password' width='100' />
                             <ColumnDirective field='role' width='100'  />
                         </ColumnsDirective>
+                        
                         <Inject services={[Page, Search, Toolbar, Edit, Sort, Filter, ExcelExport]} />
                     </GridComponent>
                 </div>
