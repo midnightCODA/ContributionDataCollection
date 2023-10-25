@@ -45,12 +45,7 @@ const ViewData = () => {
     
         fetchData();
       }, []);
-
-
-
-
-
-   
+      
 
     return (
 

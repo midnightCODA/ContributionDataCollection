@@ -20,6 +20,14 @@ const Navbar = () => {
     }
   }
 
+
+  function logout() {
+
+    localStorage.removeItem('token')
+    window.location.href = '/'
+    
+  }
+
   return (
       <div className='fixed  md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
       <nav className='flex flex-row justify-between max-container'>
@@ -43,7 +51,15 @@ const Navbar = () => {
               </a>
             </li>
           ))}
+          <input
+            value='Log out'
+            type='button'
+            className='text-red-500'
+            onClick={logout}
+          />
         </ul>
+
+        
 
        
         <div className='hidden max-lg:block  mr-4'>

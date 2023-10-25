@@ -12,6 +12,7 @@
   "dependencies": {
     "@syncfusion/ej2-base": "^23.1.41",
     "@syncfusion/ej2-react-grids": "^23.1.41",
+    "buffer": "^6.0.3",
     "jsonwebtoken": "^9.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

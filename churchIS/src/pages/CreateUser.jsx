@@ -2,21 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Button } from "../components";
 import { Link } from 'react-router-dom';
 import logo from '../assets/saving.png';
-import jwt from 'jsonwebtoken';
 import {Navbar} from "../components";
 
 const CreateUser = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token')
-    if(token){
-        const user = jwt.decode(token)
-        if(!user){
+    if(!token){
           localStorage.removeItem('token')
           window.location.href = '/'
-        } else {
-          
-        }
     }
   }, [])
 

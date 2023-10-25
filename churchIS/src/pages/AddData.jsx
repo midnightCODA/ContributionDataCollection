@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from "../components";
 import logo from '../assets/saving.png';
 import {Navbar} from "../components";
-import jwt from 'jsonwebtoken';
+
 
 
 const InputField = ({ label, type, value, onChange, required }) => (
@@ -21,16 +21,12 @@ const InputField = ({ label, type, value, onChange, required }) => (
 
 const AddData = () => {
 
+
   useEffect(() => {
     const token = localStorage.getItem('token')
-    if(token){
-        const user = jwt.decode(token)
-        if(!user){
+    if(!token){
           localStorage.removeItem('token')
           window.location.href = '/'
-        } else {
-          
-        }
     }
   }, [])
 
