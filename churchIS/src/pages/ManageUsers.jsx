@@ -1,10 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback  } from 'react'
 import { Header, Navbar } from '../components'
 import { ColumnDirective, ColumnsDirective, Filter, GridComponent, Group, Toolbar, Edit, ExcelExport, Search, Inject, Page, Sort } from '@syncfusion/ej2-react-grids';
 
 
 
 const ManageUsers = () => {
+
+  
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [variableValue, setVariableValue] = useState('');
+
+
+const updateVariableValue = useCallback(() => {
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth < 768) {
+    setVariableValue(`${screenWidth - 40}px`);
+  } else {
+    setVariableValue('auto');
+  }
+}, []);
+
+useEffect(() => {
+  updateVariableValue(); // Initialize variableValue based on screen size
+  window.addEventListener('resize', updateVariableValue); // Update variableValue on window resize
+
+  return () => {
+    window.removeEventListener('resize', updateVariableValue); // Clean up the event listener
+  };
+}, [updateVariableValue]);
+
+
+
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -16,8 +44,6 @@ const ManageUsers = () => {
 
 
 
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
 
 
   let grid;
@@ -73,19 +99,19 @@ const ManageUsers = () => {
             dataSource={data}
             allowSorting
             allowPaging
-            toolbar={['Add', 'Search', 'Delete', 'ExcelExport']}
+            toolbar={[ 'Search', 'Delete', 'ExcelExport']}
             allowExcelExport={true}
             editSettings={{ allowEditing: true, allowDeleting: false, allowAdding: true, mode: 'Dialog' }}
-            width="auto"
+            width={variableValue}
             toolbarClick={toolbarClick}
             ref={g => grid = g}
           >
             <ColumnsDirective
             >
-              <ColumnDirective field='full_name' width='100' />
-              <ColumnDirective field='email' width='100' />
-              <ColumnDirective field='password' width='100' />
-              <ColumnDirective field='role' width='100' />
+              <ColumnDirective field='full_name' minWidth='80' width='100' maxWidth='150' />
+              <ColumnDirective field='email' minWidth='80' width='100' maxWidth='150' />
+              <ColumnDirective field='password' minWidth='80' width='100' maxWidth='150' />
+              <ColumnDirective field='role' minWidth='80' width='100' maxWidth='150' />
             </ColumnsDirective>
 
             <Inject services={[Page, Search, Toolbar, Edit, Sort, Filter, ExcelExport]} />

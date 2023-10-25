@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect,useCallback} from 'react'
 import { Header, Navbar, PublicNav } from '../components'
 import { GridComponent, ColumnsDirective, ColumnDirective, Resize, Selection, ExcelExport, Sort, ContextMenu, Filter, Toolbar, Page, Search, Edit, Inject } from '@syncfusion/ej2-react-grids'
 import '../App.css'
@@ -9,8 +9,37 @@ registerLicense('Ngo9BigBOggjHTQxAR8/V1NHaF5cXmVCf1FpRmJGdld5fUVHYVZUTXxaS00DNHV
 
 const ViewData = () => {
 
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [variableValue, setVariableValue] = useState('');
+
+
+const updateVariableValue = useCallback(() => {
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth < 768) {
+    setVariableValue(`${screenWidth - 50}px`);
+  } else {
+    setVariableValue('auto');
+  }
+}, []);
+
+useEffect(() => {
+  updateVariableValue(); // Initialize variableValue based on screen size
+  window.addEventListener('resize', updateVariableValue); // Update variableValue on window resize
+
+  return () => {
+    window.removeEventListener('resize', updateVariableValue); // Clean up the event listener
+  };
+}, [updateVariableValue]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if(!token){
+          localStorage.removeItem('token')
+          window.location.href = '/'
+    }
+  }, [])
 
     let grid;
     const toolbarClick = (args) => {
@@ -83,7 +112,7 @@ const ViewData = () => {
                         toolbar={['Search', 'ExcelExport']}
                         allowExcelExport={true}
                         allowResizing={true} 
-                        width='350px'
+                        width={variableValue}
                         toolbarClick={toolbarClick}
                         ref={g => grid = g}
                     >
