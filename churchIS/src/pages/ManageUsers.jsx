@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback  } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Header, Navbar } from '../components'
 import { ColumnDirective, ColumnsDirective, Filter, GridComponent, Group, Toolbar, Edit, ExcelExport, Search, Inject, Page, Sort } from '@syncfusion/ej2-react-grids';
 
@@ -6,33 +6,17 @@ import { ColumnDirective, ColumnsDirective, Filter, GridComponent, Group, Toolba
 
 const ManageUsers = () => {
 
-  
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [variableValue, setVariableValue] = useState('');
+const screenWidth = window.innerWidth; // Get the width of the device screen
 
+let variableValue;
 
-const updateVariableValue = useCallback(() => {
-  const screenWidth = window.innerWidth;
-
-  if (screenWidth < 768) {
-    setVariableValue(`${screenWidth - 40}px`);
-  } else {
-    setVariableValue('auto');
-  }
-}, []);
-
-useEffect(() => {
-  updateVariableValue(); // Initialize variableValue based on screen size
-  window.addEventListener('resize', updateVariableValue); // Update variableValue on window resize
-
-  return () => {
-    window.removeEventListener('resize', updateVariableValue); // Clean up the event listener
-  };
-}, [updateVariableValue]);
-
-
-
+if (screenWidth < 768) {
+  // If the screen width is less than 768px, subtract 40px from it
+  variableValue = `${screenWidth - 40}px`;
+} else {
+  // If the screen width is greater than or equal to 768px, set the variable to 'auto'
+  variableValue = 'auto';
+}
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -44,6 +28,8 @@ useEffect(() => {
 
 
 
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
 
   let grid;
@@ -102,7 +88,7 @@ useEffect(() => {
             toolbar={[ 'Search', 'Delete', 'ExcelExport']}
             allowExcelExport={true}
             editSettings={{ allowEditing: true, allowDeleting: false, allowAdding: true, mode: 'Dialog' }}
-            width={variableValue}
+            width={`${variableValue}`}
             toolbarClick={toolbarClick}
             ref={g => grid = g}
           >

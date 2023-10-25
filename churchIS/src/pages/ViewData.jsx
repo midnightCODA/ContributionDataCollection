@@ -1,4 +1,4 @@
-import React, {useState, useEffect,useCallback} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Header, Navbar, PublicNav } from '../components'
 import { GridComponent, ColumnsDirective, ColumnDirective, Resize, Selection, ExcelExport, Sort, ContextMenu, Filter, Toolbar, Page, Search, Edit, Inject } from '@syncfusion/ej2-react-grids'
 import '../App.css'
@@ -9,37 +9,20 @@ registerLicense('Ngo9BigBOggjHTQxAR8/V1NHaF5cXmVCf1FpRmJGdld5fUVHYVZUTXxaS00DNHV
 
 const ViewData = () => {
 
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [variableValue, setVariableValue] = useState('');
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
+    const screenWidth = window.innerWidth; // Get the width of the device screen
 
-const updateVariableValue = useCallback(() => {
-  const screenWidth = window.innerWidth;
+let variableValue;
 
-  if (screenWidth < 768) {
-    setVariableValue(`${screenWidth - 50}px`);
-  } else {
-    setVariableValue('auto');
-  }
-}, []);
-
-useEffect(() => {
-  updateVariableValue(); // Initialize variableValue based on screen size
-  window.addEventListener('resize', updateVariableValue); // Update variableValue on window resize
-
-  return () => {
-    window.removeEventListener('resize', updateVariableValue); // Clean up the event listener
-  };
-}, [updateVariableValue]);
-
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if(!token){
-          localStorage.removeItem('token')
-          window.location.href = '/'
-    }
-  }, [])
+if (screenWidth < 768) {
+  // If the screen width is less than 768px, subtract 40px from it
+  variableValue = `${screenWidth - 40}px`;
+} else {
+  // If the screen width is greater than or equal to 768px, set the variable to 'auto'
+  variableValue = 'auto';
+}
 
     let grid;
     const toolbarClick = (args) => {
@@ -112,7 +95,7 @@ useEffect(() => {
                         toolbar={['Search', 'ExcelExport']}
                         allowExcelExport={true}
                         allowResizing={true} 
-                        width={variableValue}
+                        width={`${variableValue}`}
                         toolbarClick={toolbarClick}
                         ref={g => grid = g}
                     >
