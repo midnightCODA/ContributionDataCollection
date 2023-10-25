@@ -89,6 +89,7 @@ if (screenWidth < 768) {
                 <div className='m-2 md:m-10 md:p-10 dark:text-gray-200 dark:bg-secondary-dark-bg rounded-3xl z-1000 shadow-lg'>
                     
                     <GridComponent
+                    id='grid'
                         dataSource={data}
                         allowSorting
                         allowPaging
