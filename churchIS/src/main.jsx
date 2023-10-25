@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     element: <ViewData />,
   },
   {
-    path: "/AddData",
+    path: "/adddata",
     element: <AddData />,
   },
   {
@@ -23,11 +23,11 @@ const router = createBrowserRouter([
     element: <AdminDashboard />,
   },
   {
-    path: "/Login",
+    path: "/login",
     element: <Login />,
   },
   {
-    path: "/ManageUsers",
+    path: "/manageusers",
     element: <ManageUsers />,
   },
 
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/CreateUser",
+    path: "/createuser",
     element: <CreateUser />,
   },
 ]);
