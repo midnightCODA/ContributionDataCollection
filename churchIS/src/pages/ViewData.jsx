@@ -82,19 +82,20 @@ const ViewData = () => {
                         allowPaging
                         toolbar={['Search', 'ExcelExport']}
                         allowExcelExport={true}
-                        // width='380px'
+                        allowResizing={true} 
+                        width='350px'
                         toolbarClick={toolbarClick}
                         ref={g => grid = g}
                     >
                         <ColumnsDirective
                         >
-                            <ColumnDirective field='full_name'   />
-                            <ColumnDirective field='amount'   />
-                            <ColumnDirective field='contact'  />
-                            <ColumnDirective field='gender'  />
-                            <ColumnDirective field='title'  />
+                            <ColumnDirective field='full_name' minWidth='80' width='100' maxWidth='150'  />
+                            <ColumnDirective field='amount' minWidth='80' width='100' maxWidth='150'  />
+                            <ColumnDirective field='contact' minWidth='80' width='100' maxWidth='150' />
+                            <ColumnDirective field='gender' minWidth='80' width='100' maxWidth='150' />
+                            <ColumnDirective field='title' minWidth='80' width='100' maxWidth='150' />
                         </ColumnsDirective>
-                        <Inject services={[Page, Search, Toolbar, Edit, Sort, Filter, ExcelExport]} />
+                        <Inject services={[Page, Search, Toolbar, Edit, Sort, Filter, ExcelExport, Resize]} />
                     </GridComponent>
                 </div>
 
