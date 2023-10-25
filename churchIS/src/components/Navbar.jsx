@@ -37,7 +37,7 @@ const Navbar = () => {
             className="m-0 mr-8 ml-4 w-[29px] h-[29px]"
           />
         </Link>
-        <ul className={`flex flex-auto gap-5 ${style} max-lg:${hidden}`}>
+        <ul className={`flex flex-auto gap-5 ${style}  max-md:${hidden}`}>
           {navLinks.map((item) => (
             <li key={item.label}>
               <Link to={item.href} className="font-montserrat leading-normal text-lg text-slate-gray">
