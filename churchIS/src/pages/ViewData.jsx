@@ -59,7 +59,7 @@ const ViewData = () => {
 
             <div className=' w-full flex justify-center items-center flex-col mt-8'>
     
-            <h1 className='head_text'>
+            <h1 className='head_text p-3'>
                 Welcome to contributions collection App <br className='max-md:hidden' />
                 <span className='orange_gradient'>Michango Yetu</span>
               </h1>
