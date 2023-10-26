@@ -26,7 +26,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+    <div className="fixed md:static bg-main-dark-bg dark:bg-main-dark-bg text-white navbar w-full">
       <nav className="flex flex-row justify-between max-container">
         <Link to="/"> {/* Use Link component to navigate */}
           <img
@@ -40,7 +40,7 @@ const Navbar = () => {
         <ul className={`flex flex-auto gap-5 ${style}  max-md:${hidden}`}>
           {navLinks.map((item) => (
             <li key={item.label}>
-              <Link to={item.href} className="font-montserrat leading-normal text-lg text-slate-gray">
+              <Link to={item.href} className="font-montserrat leading-normal w-full text-lg text-slate-gray">
                 {item.label}
               </Link>
             </li>
@@ -50,7 +50,7 @@ const Navbar = () => {
           </button>
         </ul>
 
-        <div className="hidden max-lg:block mr-4">
+        <div className="hidden text-white max-lg:block mr-4">
           <img onClick={toggleDash} src={hamburger} alt="hamburger icon" width={25} height={25} />
         </div>
       </nav>

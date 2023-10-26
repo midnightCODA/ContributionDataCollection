@@ -61,7 +61,9 @@ if (screenWidth < 768) {
 
     return (
 
-        <main className='relative '>
+        <main className='relative bg-main-dark-bg '>
+
+
 
              <div className='gradient' />
 
@@ -73,7 +75,7 @@ if (screenWidth < 768) {
     
             <h1 className='head_text p-3'>
                 Welcome to contributions collection App <br className='max-md:hidden' />
-                <span className='orange_gradient'>Michango Yetu</span>
+                <span className='purple_gradient'>Michango Yetu</span>
               </h1>
               
               <br/>
@@ -86,7 +88,7 @@ if (screenWidth < 768) {
 
             <div className='flex justify-center w-200 m-auto md:w-full '>
 
-                <div className='m-2 md:m-10 md:p-10 dark:text-gray-200 dark:bg-secondary-dark-bg rounded-3xl z-1000 shadow-lg'>
+                <div className='m-2 md:m-10 md:p-10 bg-secondary-dark-bg rounded-3xl z-1000 shadow-lg'>
                     
                     <GridComponent
                     id='grid'
@@ -99,6 +101,7 @@ if (screenWidth < 768) {
                         width={`${variableValue}`}
                         toolbarClick={toolbarClick}
                         ref={g => grid = g}
+                        ba
                     >
                         <ColumnsDirective
                         >

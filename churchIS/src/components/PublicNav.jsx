@@ -5,8 +5,8 @@ import  logo  from '../assets/saving.png'
 
 const PublicNav = () => {
   return (
-    <div>
-    <div className='fixed  md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+    
+    <div className='fixed  md:static bg-main-dark-bg dark:bg-main-dark-bg navbar w-full'>
       <nav className='flex flex-row justify-between max-container'>
         <a href='/'>
           <img
@@ -22,7 +22,7 @@ const PublicNav = () => {
             <li key={item.label}>
               <a
                 href={item.href}
-                className='font-montserrat leading-normal text-lg text-slate-gray'
+                className='font-montserrat leading-normal text-lg text-white'
               >
                 {item.label}
               </a>
@@ -33,7 +33,7 @@ const PublicNav = () => {
        
       </nav>
       </div>
-    </div>
+   
   )
 }
 

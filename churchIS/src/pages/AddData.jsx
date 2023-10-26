@@ -8,9 +8,9 @@ import {Navbar} from "../components";
 
 const InputField = ({ label, type, value, onChange, required }) => (
   <div>
-    <p className='font-semibold text-md justify-center ml-4 mr-4'>{label}:</p>
+    <p className='font-semibold text-md justify-center ml-4 mr-4 mt-2 text-white'>{label}:</p>
     <input
-      className='w-[90%] bg-slate-200 dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
+      className='w-[90%] bg-main-dark-bg text-white dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
       type={type}
       value={value}
       onChange={onChange}
@@ -102,20 +102,20 @@ const AddData = () => {
       </div>
     <div>
       <div className='flex flex-wrap justify-center mt-5'>
-        <div className='w-760 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 shadow-lg'>
+        <div className='w-760 bg-secondary-dark-bg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 shadow-lg'>
 
           <div className='mt-5'>
             <div className='mt-8'>
               <div className="flex w-full justify-center flex-col p-3">
-                <p className='font-semibold text-lg justify-center mb-8'>Add contribution</p>
-                <p className='text-gray-400 text-sm justify-center'>contact Administrator to get access to restricetd features</p>
+                <p className='font-semibold text-lg text-white justify-center mb-8'>Add contribution</p>
+                <p className='text-gray-400 text-sm justify-center'></p>
               </div>
 
               <form onSubmit={handleSubmit}>
 
 
 
-              <InputField label="Full name" type="text" value={name} onChange={handlenameChange} required />
+              <InputField label="Full name" className='text-white' type="text" value={name} onChange={handlenameChange} required />
               <InputField label="Gender" type="text" value={gender} onChange={handlegenderChange} required />
               <InputField label="Title" type="text" value={title} onChange={handletitleChange} required />
               <InputField label="Contact" type="text" value={contact} onChange={handlecontactChange} required />
@@ -127,7 +127,7 @@ const AddData = () => {
                   <input
                     value='Add contribution'
                     type="submit"
-                    className="w-[70%] orange_bg_gradient  text-white font-bold  p-3 mt-4 rounded-lg"
+                    className="w-[70%] purple_bg_gradient  text-white font-bold  p-3 mt-4 rounded-lg"
                   />
 
 
