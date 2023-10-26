@@ -32,6 +32,15 @@ if (screenWidth < 768) {
     };
 
     useEffect(() => {
+      const token = localStorage.getItem('token')
+      if(!token){
+            localStorage.removeItem('token')
+            window.location.href = '/login'
+      }
+    }, [])
+
+    useEffect(() => {
+
         const fetchData = async () => {
           try {
             const response = await fetch('https://churchisbackend.onrender.com/allcontributions', {
@@ -68,7 +77,7 @@ if (screenWidth < 768) {
              <div className='gradient' />
 
             <div className='flex py-5'>
-                <PublicNav />
+                <Navbar />
             </div>
 
             <div className=' w-full flex justify-center items-center flex-col mt-8'>
@@ -101,7 +110,7 @@ if (screenWidth < 768) {
                         width={`${variableValue}`}
                         toolbarClick={toolbarClick}
                         ref={g => grid = g}
-                        ba
+                        
                     >
                         <ColumnsDirective
                         >

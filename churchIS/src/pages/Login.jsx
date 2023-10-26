@@ -77,14 +77,14 @@ const Login = () => {
 
             <form onSubmit={handleSubmit}>
               <input
-                className='w-[90%] bg-main-dark-bg  dark:text-gray-200 dark:bg-input-gray  rounded-2xl p-3 mt-4 mb-1 ml-4 mr-4'
+                className='w-[90%] bg-main-dark-bg text-white  dark:text-gray-200 dark:bg-input-gray  rounded-2xl p-3 mt-4 mb-1 ml-4 mr-4'
                 placeholder='User id'
                 value={scisuserid}
                 onChange={handleUsernameChange}
               />
 
               <input
-                className='w-[90%] bg-main-dark-bg  dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
+                className='w-[90%] bg-main-dark-bg text-white  dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
                 placeholder='Password'
                 type='password'
                 value={password}

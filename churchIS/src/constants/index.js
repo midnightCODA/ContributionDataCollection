@@ -1,9 +1,10 @@
 
 export const navLinks = [
-    { href: "/dashboard", label: "Dashboard" },
-    { href: "/adddata", label: "Add data" },
-    { href: "/createuser", label: "Create User" },
-    { href: "/manageusers", label: "Manage Users" },
+    { href: "/dashboard", label: "dashboard" },
+    { href: "/", label: "view data" },
+    { href: "/adddata", label: "add data" },
+    { href: "/createuser", label: "create user" },
+    { href: "/manageusers", label: "manage users" },
 ];
 
 
