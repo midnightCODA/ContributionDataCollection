@@ -79,7 +79,7 @@ if (screenWidth < 768) {
 
       <div className='flex justify-center w-200 m-auto md:w-full'>
 
-        <div className='m-2 md:m-10 md:p-10 dark:text-gray-200 dark:bg-secondary-dark-bg rounded-3xl z-1000 shadow-lg'>
+        <div className='m-2 md:m-10 md:p-10 bg-secondary-dark-bg  dark:text-gray-200 dark:bg-secondary-dark-bg rounded-3xl z-1000 shadow-lg'>
           <Header title="Edit your users" />
           <GridComponent
           id='grid'

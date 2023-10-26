@@ -59,7 +59,7 @@ const AdminDashboard = () => {
     
     <h1 className='head_text p-3'>
         Welcome to contributions collection App <br className='max-md:hidden' />
-        <span className='orange_gradient '>Michango Yetu</span>
+        <span className='purple_gradient '>Michango Yetu</span>
       </h1>
       
       <br/>
@@ -80,7 +80,7 @@ const AdminDashboard = () => {
 
           {/* small inormation cards */}
 
-          <div className="bg-white shadow-lg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-200 p-8 m-3 flex justify-center items-center gap-10">
+          <div className="bg-secondary-dark-bg text-white shadow-lg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-200 p-8 m-3 flex justify-center items-center gap-10">
             <div>
               <p className="text-2xl font-semibold ">{new Intl.NumberFormat('en-US', {
                 style: 'currency',
@@ -91,16 +91,16 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-200 p-8 m-3 flex justify-center items-center gap-10 shadow-lg">
+          <div className="bg-secondary-dark-bg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-200 p-8 m-3 flex justify-center items-center gap-10 shadow-lg">
             <div>
-              <p className="text-2xl font-semibold ">{data?.contributionCount}</p>
+              <p className="text-2xl text-white font-semibold ">{data?.contributionCount}</p>
               <p className="text-gray-400">Number of <br/> contributions Made</p>
             </div>
           </div>
 
-          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-200 p-8 m-3 flex justify-center items-center gap-10 shadow-lg">
+          <div className="bg-secondary-dark-bg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-200 p-8 m-3 flex justify-center items-center gap-10 shadow-lg">
             <div>
-              <p className="text-2xl font-semibold ">{data?.userCount}</p>
+              <p className="text-2xl text-white font-semibold ">{data?.userCount}</p>
               <p className="text-gray-400">No of users</p>
             </div>
           </div>

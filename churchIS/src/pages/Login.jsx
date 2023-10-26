@@ -63,28 +63,28 @@ const Login = () => {
 
 
   return (
-    <div className='flex flex-wrap justify-center '>
-      <div className='w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 mt-20 shadow-lg'>
+    <div className='flex flex-wrap justify-center bg-main-dark-bg'>
+      <div className='w-400 bg-secondary-dark-bg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 mt-20 shadow-lg'>
         <div className='flex justify-center'>
-          <p className='text-xl font-semibold justify-center'>Welcome to <span className="orange_gradient">MichangoYetu</span></p>
+          <p className='text-xl text-white font-semibold justify-center'>Welcome to <span className="purple_gradient">MichangoYetu</span></p>
         </div>
         <div className='mt-5'>
 
           <div className='mt-8'>
             <div className="flex w-full justify-center flex-col p-3">
-              <p className='font-semibold text-lg justify-center'>Please Login to Acess dashboard</p>
+              <p className='font-semibold text-lg w-full text-white justify-center'>Please Login to Acess dashboard</p>
             </div>
 
             <form onSubmit={handleSubmit}>
               <input
-                className='w-[90%] bg-slate-200  dark:text-gray-200 dark:bg-input-gray  rounded-2xl p-3 mt-4 mb-1 ml-4 mr-4'
+                className='w-[90%] bg-main-dark-bg  dark:text-gray-200 dark:bg-input-gray  rounded-2xl p-3 mt-4 mb-1 ml-4 mr-4'
                 placeholder='User id'
                 value={scisuserid}
                 onChange={handleUsernameChange}
               />
 
               <input
-                className='w-[90%] bg-slate-200  dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
+                className='w-[90%] bg-main-dark-bg  dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
                 placeholder='Password'
                 type='password'
                 value={password}
@@ -97,7 +97,7 @@ const Login = () => {
                 <input
                   value='Login'
                   type="submit"
-                  className="w-full orange_bg_gradient font-bold  text-white p-3 rounded-lg"
+                  className="w-full purple_bg_gradient font-bold  text-white p-3 rounded-lg"
                 />
 
 

@@ -61,15 +61,111 @@
   @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
 }
 
+.purple_gradient {
+  @apply bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent;
+}
+
+
 .head_text {
-  @apply mt-5 text-2xl font-extrabold leading-[1.15] text-black sm:text-2xl text-center;
+  @apply mt-5 text-2xl font-extrabold leading-[1.15] text-white sm:text-2xl text-center;
 }
 
 .desc {
-  @apply mt-5 text-lg text-gray-600 sm:text-xl text-center max-w-2xl;
+  @apply mt-5 text-lg text-slate-100 sm:text-xl text-center max-w-2xl;
 }
 
 .orange_bg_gradient {
   @apply bg-gradient-to-r from-orange-600 to-yellow-500;
 }
+
+.purple_bg_gradient {
+  @apply bg-gradient-to-r from-violet-600 to-purple-600;
+}
+/* 
+.e-grid {
+    font-family: cursive;
+    color: white !important;
+    background-color: #292b34 !important;
+}
+
+.e-headercell {         
+  color: white; 
+  font-weight: bold; 
+  background-color: #292b34 !important;
+
+} 
+
+.e-grid .e-toolbar-items {
+  color: white !important; 
+  background-color: #292b34 !important;
+
+}
+
+.e-grid .e-toolbar .e-btn {
+  color: white !important; 
+  background-color: #292b34;
+
+}
+
+.e-gridpager{
+  color: white; 
+  background-color: #292b34 !important;
+}
+
+.e-gridheader{
+  color: white !important; 
+  background-color: #292b34;
+}
+
+
+.e-gridfooter{
+  background-color: #292b34;
+}
+
+.e-grid .e-row:hover .e-rowcell {
+  background-color: #292b34;
+}
+.e-grid .e-rowcell.e-selectionbackground {
+  color: white !important;
+  background-color: #292b34;
+}
+.e-grid .e-row.e-altrow {
+  color: white !important;
+  background-color: #292b34;
+
+}
+.e-grid .e-row {
+  color: white !important;
+  background-color: #292b34;
+
+}
+.e-grid .e-gridpager {
+  font-family: cursive;
+  background-color: #292b34;
+}
+
+.e-grid .e-pagercontainer {
+  background-color: #292b34;
+}
+
+.e-grid .e-gridpager .e-prevpagedisabled,
+.e-grid .e-gridpager .e-prevpage,
+.e-grid .e-gridpager .e-nextpage,
+.e-grid .e-gridpager .e-nextpagedisabled,
+.e-grid .e-gridpager .e-lastpagedisabled,
+.e-grid .e-gridpager .e-lastpage,
+.e-grid .e-gridpager .e-firstpage,
+.e-grid .e-gridpager .e-firstpagedisabled {
+    background-color: #292b34;
+}
+
+.e-grid .e-gridpager .e-numericitem {
+  border-radius: 50%;
+}
+
+.e-grid .e-gridpager .e-currentitem {
+  background-color: purple;
+}
+
+ */
 
