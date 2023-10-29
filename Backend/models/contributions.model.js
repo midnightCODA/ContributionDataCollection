@@ -6,7 +6,8 @@ const contributionSchema = new mongoose.Schema(
         gender: { type: String, required: true },
         title: { type: String },
         contact: { type: String },
-        amount: { type: Number }
+        amount: { type: Number },
+        contributionType: { type: String }
     },
     {
         collection: 'contributions' // You can specify the collection name here

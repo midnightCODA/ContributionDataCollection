@@ -84,7 +84,7 @@ if (screenWidth < 768) {
     
             <h1 className='head_text p-3'>
                 Welcome to contributions collection App <br className='max-md:hidden' />
-                <span className='purple_gradient'>Michango Yetu</span>
+                <span className='blue_gradient'>Michango Yetu</span>
               </h1>
               
               <br/>

@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import App from './App.jsx'
 import './index.css'
-import { AddData, AdminDashboard, ChangePassword, Login, ManageUsers, ViewData, CreateUser } from './pages';
+import { AddData, AdminDashboard, ChangePassword, Login, ManageUsers, ViewData, CreateUser, CreateType } from './pages';
 
 
 const router = createBrowserRouter([
@@ -39,6 +39,11 @@ const router = createBrowserRouter([
   {
     path: "/createuser",
     element: <CreateUser />,
+  },
+
+  {
+    path: "/createtype",
+    element: <CreateType />,
   },
 ]);
 

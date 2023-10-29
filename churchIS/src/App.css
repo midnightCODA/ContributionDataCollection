@@ -80,6 +80,15 @@
 
 .purple_bg_gradient {
   @apply bg-gradient-to-r from-violet-600 to-purple-600;
+
+
+}
+.blue_bg_gradient {
+  @apply bg-gradient-to-r from-blue-500 to-cyan-500 ;
+}
+
+.blue_gradient {
+  @apply bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent;
 }
 /* 
 .e-grid {
