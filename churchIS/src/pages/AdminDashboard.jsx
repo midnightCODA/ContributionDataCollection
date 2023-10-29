@@ -82,21 +82,21 @@ const AdminDashboard = () => {
                 currency: 'TZS', // Currency code for Tanzanian Shillings
                 minimumFractionDigits: 0, // You can change this based on your preference
               }).format(data?.totalAmount)} </p>
-              <p className="text-gray-400">Total Amount <br/> Contributions Made</p>
+              <p className="text-gray-400">Jumla ya <br/> Makusanyo</p>
             </div>
           </div>
 
           <div className="bg-secondary-dark-bg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-200 p-8 m-3 flex justify-center items-center gap-10 shadow-lg">
             <div>
               <p className="text-2xl text-white font-semibold ">{data?.contributionCount}</p>
-              <p className="text-gray-400">Number of <br/> contributions Made</p>
+              <p className="text-gray-400">Idadi ya<br/> Makusanyo</p>
             </div>
           </div>
 
           <div className="bg-secondary-dark-bg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-200 p-8 m-3 flex justify-center items-center gap-10 shadow-lg">
             <div>
               <p className="text-2xl text-white font-semibold ">{data?.userCount}</p>
-              <p className="text-gray-400">No of users</p>
+              <p className="text-gray-400">Idadi ya<br/>  Watumiaji</p>
             </div>
           </div>
 

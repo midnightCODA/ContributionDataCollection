@@ -77,10 +77,22 @@ if (screenWidth < 768) {
         <Navbar />
       </div>
 
+      
+      <div className=' w-full flex justify-center items-center flex-col mt-8'>
+
+        <h1 className='head_text p-3'>
+          Manage users<br className='max-md:hidden' />
+        </h1>
+
+
+
+
+      </div>
+
       <div className='flex justify-center w-200 m-auto md:w-full'>
 
-        <div className='m-2 md:m-10 md:p-10 bg-secondary-dark-bg  dark:text-gray-200 dark:bg-secondary-dark-bg rounded-3xl z-1000 shadow-lg'>
-          <Header title="Edit your users" />
+
+        <div className='m-8 md:m-10 md:p-10 bg-secondary-dark-bg  dark:text-gray-200 dark:bg-secondary-dark-bg rounded-3xl z-1000 shadow-lg'>
           <GridComponent
           id='grid'
             dataSource={data}
