@@ -176,7 +176,7 @@ app.post('/contributionTypes', async (req,res) => {
     console.log(req.body);
 
     try {
-        const contributionType = await Contribution.create({
+        const contributionType = await contributionOf.create({
             name: req.body.name,
             description: req.body.description,
             startDate: req.body.startDate,
