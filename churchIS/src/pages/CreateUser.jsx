@@ -4,6 +4,24 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/saving.png';
 import {Navbar} from "../components";
 
+const SelectField = ({ label, options, onChange, value, required }) => {
+  return (
+    <div>
+      <p className='font-semibold text-md justify-center ml-4 mr-4 mt-2 text-white'>{label}:</p>
+      <select
+        className='w-[90%] bg-main-dark-bg text-white dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
+        onChange={onChange} required={required} value={value}>
+        <option value=''></option>
+        {options?.map((item) => (
+          <option key={item.name} value={item.name}>
+            {item.name}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+};
+
 const CreateUser = () => {
 
   useEffect(() => {
@@ -18,6 +36,7 @@ const CreateUser = () => {
   const [scisuserid, setScisuserid] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const [Role, setRole] = useState('')
 
   const handleInputChange = (e, setter) => {
     setter(e.target.value);
@@ -29,7 +48,8 @@ const CreateUser = () => {
     const body = {
       email: scisuserid,
       password: password,
-      full_name: username
+      full_name: username,
+      role: Role
     };
 
     console.log(body);
@@ -91,6 +111,14 @@ const CreateUser = () => {
                   required
                   onChange={(e) => handleInputChange(e, setScisuserid)}
                 />
+
+                <SelectField 
+                label='Role' 
+                options={[{name: 'System Admin'}, {name: 'user'} ]}
+                required
+                onChange={(e) => handleInputChange(e, setRole)}
+                value={Role}
+                 />
 
                 <p className='font-semibold text-md justify-center ml-4 mr-4 mt-2 text-white'>Password:</p>
                 <input

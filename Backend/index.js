@@ -98,7 +98,8 @@ app.post('/register', async (req, res) => {
         const user = await User.create({
             full_name: req.body.full_name,
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            role: req.body.role
         })
 
         if (user) {
