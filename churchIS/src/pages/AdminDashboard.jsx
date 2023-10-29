@@ -58,17 +58,12 @@ const AdminDashboard = () => {
     <div className='w-full flex justify-center items-center flex-col mt-8'>
     
     <h1 className='head_text p-3'>
-        Welcome to contributions collection App <br className='max-md:hidden' />
-        <span className='blue_gradient '>Michango Yetu</span>
+        Kanisa la Moraivan - Ushirika wa Ukonga <br className='max-md:hidden' />
+        <span className='blue_gradient '>Jumuiya ya Stakishari</span>
       </h1>
       
       <br/>
-      <h2 className='desc'>
-            Here are some of your current Stats
-      <br/>
-      <br/>
 
-      </h2>
     
     
     </div>

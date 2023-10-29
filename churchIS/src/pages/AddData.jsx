@@ -169,7 +169,7 @@ const AddData = () => {
             <div className='mt-5'>
               <div className='mt-8'>
                 
-               <p className='font-semibold text-lg text-white justify-center mb-8'>Andika Mchango</p>
+               <p className='font-semibold text-lg text-white justify-center mb-8'>Andika Mchango Mpya</p>
 
 
                 <form onSubmit={handleSubmit}>
@@ -180,25 +180,25 @@ const AddData = () => {
                     options={contributionTypeOptions}
                     value={contributionType}
                     onChange={handleContributionTypeChange}
-                    required
+                    
                   />
                   <InputField label="Jina Kamili" className='text-white' type="text" value={name} onChange={handlenameChange} required />
                   <SelectField
-                    label='Gender'
-                    options={[{ name: 'Male' }, { name: 'Female' }]}
+                    label='Jinsia'
+                    options={[{ name: 'Mme' }, { name: 'Mke' }]}
                     value={gender}
                     onChange={handlegenderChange}
                     required
                   />
                   <InputField label="Cheo" type="text" value={title} onChange={handletitleChange} required />
                   <InputField label="Namba ya simu" type="text" value={contact} onChange={handlecontactChange} required />
-                  <InputField label="Kiasi" type="text" value={amount} onChange={handleamountChange} required />
+                  <InputField label="Kiasi" type="number" value={amount} onChange={handleamountChange} required />
 
                   <div className='mt-4 flex justify-center ' >
 
 
                     <input
-                      value='Add contribution'
+                      value='Upload'
                       type="submit"
                       className="w-[70%] blue_bg_gradient text-white font-bold p-3 mt-4 rounded-lg hover:w-[73%]"
                     />

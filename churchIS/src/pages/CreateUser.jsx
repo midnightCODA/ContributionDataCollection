@@ -69,15 +69,13 @@ const CreateUser = () => {
         <div className='w-760 bg-secondary-dark-bg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 shadow-lg'>
           <div className='mt-5'>
             <div className='mt-8'>
-              <div className="flex w-full justify-center flex-col p-3">
-                <p className='font-semibold text-white text-xl justify-center mb-8'>Add user data to create a user</p>
-                <p className='text-gray-400 text-sm justify-center'></p>
-              </div>
-
+              
+              <p className='font-semibold text-white text-xl justify-center mb-8'>Tengeneza User Mpya:</p>
+              
               <form onSubmit={handleSubmit}>
-                <p className='font-semibold text-md justify-center ml-4 mr-4 text-white'>Full name:</p>
+                <p className='font-semibold text-md justify-center ml-4 mr-4 text-white'>Jina kamili:</p>
                 <input
-                  className='w-[90%] bg-main-dark-bg dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
+                  className='w-[90%] text-white bg-main-dark-bg dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
                  
                   type='text'
                   required
@@ -87,7 +85,7 @@ const CreateUser = () => {
 
                 <p className='font-semibold text-md justify-center ml-4 mr-4 mt-2 text-white'>Email:</p>
                 <input
-                  className='w-[90%] bg-main-dark-bg dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 mb-1 ml-4 mr-4'
+                  className='w-[90%] text-white bg-main-dark-bg dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 mb-1 ml-4 mr-4'
                  
                   value={scisuserid}
                   required
@@ -96,7 +94,7 @@ const CreateUser = () => {
 
                 <p className='font-semibold text-md justify-center ml-4 mr-4 mt-2 text-white'>Password:</p>
                 <input
-                  className='w-[90%] bg-main-dark-bg dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
+                  className='w-[90%] text-white bg-main-dark-bg dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
                 
                   type='password'
                   value={password}
@@ -106,9 +104,9 @@ const CreateUser = () => {
 
                 <div className=' mt-4 flex justify-center'>
                   <input
-                    value='Create User'
+                    value='Upload'
                     type="submit"
-                    className="w-[50%] blue_bg_gradient  text-white font-bold  p-3 mt-4 rounded-lg"
+                    className="w-[50%] blue_bg_gradient  text-white font-bold  p-3 mt-4 rounded-lg hover:w-[55%]"
                   />
                 </div>
               </form>
