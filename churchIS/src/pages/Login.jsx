@@ -65,20 +65,21 @@ const Login = () => {
   return (
     <div className='flex flex-wrap justify-center bg-main-dark-bg'>
       <div className='w-400 bg-secondary-dark-bg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 mt-20 shadow-lg'>
-        <div className='flex justify-center'>
-          <p className='text-xl text-white font-semibold justify-center'>Welcome to <span className="purple_gradient">MichangoYetu</span></p>
+        <div className='flex w-full m-auto text-center justify-center'>
+          <p className='text-xl text-white font-semibold w-full justify-center'>Kanisa la Moravian - Ushirika wa Ukonga, <br/> Jumuiya ya Stakishari </p>
         </div>
         <div className='mt-5'>
 
           <div className='mt-8'>
             <div className="flex w-full justify-center flex-col p-3">
-              <p className='font-semibold text-lg w-full text-white justify-center'>Please Login to Acess dashboard</p>
+              <img className='md:w-48 h-48 m-auto' src={logo} alt='' />
+              <p className='font-semibold pt-3 text-lg w-full text-white justify-center'>Login:</p>
             </div>
 
             <form onSubmit={handleSubmit}>
               <input
                 className='w-[90%] bg-main-dark-bg text-white  dark:text-gray-200 dark:bg-input-gray  rounded-2xl p-3 mt-4 mb-1 ml-4 mr-4'
-                placeholder='User id'
+                placeholder='Email'
                 value={scisuserid}
                 onChange={handleUsernameChange}
               />
@@ -97,7 +98,7 @@ const Login = () => {
                 <input
                   value='Login'
                   type="submit"
-                  className="w-full purple_bg_gradient font-bold  text-white p-3 rounded-lg"
+                  className="w-full blue_bg_gradient font-bold  text-white p-3 rounded-lg"
                 />
 
 

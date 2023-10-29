@@ -108,7 +108,7 @@ const CreateUser = () => {
                   <input
                     value='Create User'
                     type="submit"
-                    className="w-[50%] purple_bg_gradient  text-white font-bold  p-3 mt-4 rounded-lg"
+                    className="w-[50%] blue_bg_gradient  text-white font-bold  p-3 mt-4 rounded-lg"
                   />
                 </div>
               </form>

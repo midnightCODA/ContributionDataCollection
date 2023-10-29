@@ -7,8 +7,9 @@ const { default: mongoose } = require('mongoose');
 require('dotenv').config();
 const User = require('./models/users.model');
 const Contribution = require('./models/contributions.model');
+const contributionOf = require('./models/contributionOf.model');
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 
 
 // CONNECTION TO THE DB
@@ -27,8 +28,6 @@ db.on('error', (err) => {
 db.once('open', () => {
     console.log('Connected to MongoDB');
 });
-
-
 
 
 
@@ -167,6 +166,53 @@ app.post('/createcontribution', async (req, res) => {
 
 // ...
 
+
+// ...
+
+// CONTRIBUTIONS TYPES
+
+app.post('/contributionTypes', async (req,res) => {
+
+    console.log(req.body);
+
+    try {
+        const contributionType = await Contribution.create({
+            name: req.body.name,
+            description: req.body.description,
+            startDate: req.body.startDate,
+            endDate: req.body.endDate,
+        });
+
+        if (contributionType) {
+            console.log('Successfully created a contributionOf', contributionType);
+            res.status(201).json({ message: `Contribution of ${contributionType} created successfully` });
+        } else {
+            console.log('Contribution type creation failed');
+            res.status(400).json({ message: 'Contribution type creation failed' });
+        }
+    } catch (error) {
+        console.error('An error occurred', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+
+})
+
+
+app.get('/contributionTypes', async (req, res) => {
+    try {
+        // Assuming you have a model named "User" that represents your users
+        const contributionTypes = await contributionOf.find(); // Use the appropriate method to fetch all users
+
+        if (contributionTypes) {
+            res.status(200).json(contributionTypes); // Return the users as JSON response
+        } else {
+            res.status(404).json({ message: 'No contributions found' });
+        }
+    } catch (error) {
+        console.error('An error occurred', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+})
 
 
 
