@@ -114,10 +114,7 @@ const Login = () => {
 
             <div className='flex w-full justify-center '>
               <p className='text-gray-400 text-sm m-auto p-3 justify-center w-full'>
-                for forgotten password, please contact the Administrator or{' '}
-                <Link to={'/forgotpassword'} className='underline'>
-                  click here
-                </Link>{' '}
+                if you have forgotten password, please contact the System Administrator
               </p>
             </div>
           </div>
