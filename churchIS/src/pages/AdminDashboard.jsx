@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Footer, Header, Navbar } from '../components'
+import { Link } from 'react-router-dom';
 import { dataSourceChanged } from '@syncfusion/ej2-react-grids';
 
 
@@ -70,11 +71,13 @@ const AdminDashboard = () => {
                   Tunaamini kuwa hii itaboresha mchakato wa kuchangia na kusaidia shughuli za kanisa na jumuiya yetu.
 
                 </p>
+                <Link to='/'>
                 <input
-                      value='Angalia michango'
-                      type="submit"
-                      className="w-[40%] max-md:w-[60%] blue_bg_gradient text-white font-bold p-3 mt-4 rounded-lg hover:w-[73%]"
-                    />
+                value='Angalia michango'
+                type="submit"
+                className="w-[40%] max-md:w-[60%] blue_bg_gradient text-white font-bold p-3 mt-4 rounded-lg hover:w-[73%]"
+                />
+                </Link>
                
               </div>
               <div class="mb-12 lg:mb-0">
