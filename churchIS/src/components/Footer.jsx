@@ -16,7 +16,7 @@ const Footer = () => (
             Ushirika wa Ukonga
             <br />
             </p>
-            <p className='text-white mt-4'>© 2023 Flowbite™. All Rights Reserved.</p>
+            <p className='text-white mt-4'>© 2023 Contributions™. All Rights Reserved.</p>
           </aside>
         </div>
         <div className='flex '>

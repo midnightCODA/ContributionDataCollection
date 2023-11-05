@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Header, Navbar } from '../components'
+import { Header, Navbar, Footer } from '../components'
 import { ColumnDirective, ColumnsDirective, Filter, GridComponent, Group, Toolbar, Edit, ExcelExport, Search, Inject, Page, Sort } from '@syncfusion/ej2-react-grids';
 
 
@@ -118,6 +118,9 @@ if (screenWidth < 768) {
         </div>
 
       </div>
+
+      <Footer />
+
     </main>
   )
 }

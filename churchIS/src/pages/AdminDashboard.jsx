@@ -73,12 +73,12 @@ const AdminDashboard = () => {
                 <input
                       value='Angalia michango'
                       type="submit"
-                      className="w-[40%] blue_bg_gradient text-white font-bold p-3 mt-4 rounded-lg hover:w-[73%]"
+                      className="w-[40%] max-md:w-[60%] blue_bg_gradient text-white font-bold p-3 mt-4 rounded-lg hover:w-[73%]"
                     />
                
               </div>
               <div class="mb-12 lg:mb-0">
-                <img src="https://tecdn.b-cdn.net/img/new/ecommerce/vertical/028.jpg"
+                <img src="https://plus.unsplash.com/premium_photo-1663100078216-2ff58616cf54?auto=format&fit=crop&q=60&w=600&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YWZyaWNhbiUyMHNtYXJ0cGhvbmV8ZW58MHx8MHx8fDA%3D"
                   class="w-full rounded-lg shadow-lg dark:shadow-black/20" alt="" />
               </div>
             </div>

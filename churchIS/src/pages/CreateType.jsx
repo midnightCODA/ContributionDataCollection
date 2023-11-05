@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Navbar} from "../components";
+import {Navbar, Footer} from "../components";
 
 export const CreateType = () => {
 
@@ -129,6 +129,9 @@ export const CreateType = () => {
         </div>
       </div>
     </div>
+
+    <Footer />
+
     </main>
   )
 }
