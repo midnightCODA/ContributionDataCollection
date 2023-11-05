@@ -221,16 +221,19 @@ app.get('/contributionTypes', async (req, res) => {
 //AUTHORISATION
 
 app.post('/login', async (req, res) => {
-    try {
-      const user = await User.findOne({
-        email: req.body.email,
-        password: req.body.password
-      });
-  
-      if (user) {
-        // Convert the Mongoose model to a plain JavaScript object
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (user) {
+      // Check if the provided password matches the stored hashed password
+     //   const isPasswordValid = await bcrypt.compare(password, user.password);
+
+      if (password === user.password) {
+        // Password is correct
         const userData = user.toObject();
-  
+
         const token = jwt.sign(
           {
             email: userData.email,
@@ -238,16 +241,20 @@ app.post('/login', async (req, res) => {
           },
           'secret123'
         );
-  
+
         return res.json({ status: 'ok', user: token, userdata: userData });
       } else {
-        return res.json({ status: 'error', user: true });
+        return res.status(401).json({ status: 'error', message: 'Invalid password' });
       }
-    } catch (error) {
-      console.error('An error occurred', error);
-      return res.status(500).json({ status: 'error', message: 'Internal server error' });
+    } else {
+      return res.status(401).json({ status: 'error', message: 'User not found' });
     }
-  });
+  } catch (error) {
+    console.error('An error occurred', error);
+    return res.status(500).json({ status: 'error', message: 'Internal server error' });
+  }
+});
+
   
 
 
