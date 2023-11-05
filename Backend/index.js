@@ -232,6 +232,8 @@ app.post('/login', (req, res) => {
 
         if (user) {
 
+            console.log(user);
+
             const token = jwt.sign(
                 {
                     email: user.email,
