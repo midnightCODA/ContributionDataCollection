@@ -39,7 +39,7 @@ const Navbar = () => {
 
   return (
     <div className="fixed md:static bg-main-dark-bg dark:bg-main-dark-bg text-white navbar w-full">
-      <nav className="flex flex-row justify-between max-container">
+      <nav className="flex flex-row justify-between max-container pt-4 pb-4">
         <Link to="/"> {/* Use Link component to navigate */}
           <img
             src={logo}

@@ -73,7 +73,7 @@ if (screenWidth < 768) {
   return (
 
     <main className='relative'>
-      <div className='flex py-5'>
+      <div className=''>
         <Navbar />
       </div>
 

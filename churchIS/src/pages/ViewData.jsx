@@ -77,7 +77,7 @@ const ViewData = () => {
 
       <div className='gradient' />
 
-      <div className='flex py-5'>
+      <div className=''>
         <Navbar />
       </div>
 

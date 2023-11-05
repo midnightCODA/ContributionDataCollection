@@ -33,7 +33,7 @@ const CreateUser = () => {
   }, [])
 
   const [scisuserid, setScisuserid] = useState('');
-  const [password, setPassword] = useState('moravianuser');
+  const [password, setPassword] = useState('moraivanuser');
   const [username, setUsername] = useState('');
   const [Role, setRole] = useState('')
 
@@ -79,7 +79,7 @@ const CreateUser = () => {
 
     <main className='relative'>
 
-      <div className='flex py-5'>
+      <div className=''>
         <Navbar />
       </div>
 

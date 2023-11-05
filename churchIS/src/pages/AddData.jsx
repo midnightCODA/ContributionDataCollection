@@ -156,7 +156,7 @@ const AddData = () => {
   return (
 
     <main className='relative'>
-      <div className='flex py-5'>
+      <div className=''>
         <Navbar />
       </div>
       <div>
