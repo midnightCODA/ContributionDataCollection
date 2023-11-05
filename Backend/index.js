@@ -220,38 +220,35 @@ app.get('/contributionTypes', async (req, res) => {
 
 //AUTHORISATION
 
-app.post('/login', (req, res) => {
-
-    console.log(req.body);
-
+app.post('/login', async (req, res) => {
     try {
-        const user = User.findOne({
-            email: req.body.email,
-            password: req.body.password
-        })
-
-        if (user) {
-
-            console.log(user);
-
-            const token = jwt.sign(
-                {
-                    email: user.email,
-                    full_name: user.full_name
-                },
-                'secret123'
-            )
-
-            // HERE WE RETURN THE TOKEN INSTEAD OF USER DATA
-            return res.json({ status: 'ok', user: token , userdata: user })
-        } else {
-            return res.json({ status: 'error', user: true })
-        }
-
+      const user = await User.findOne({
+        email: req.body.email,
+        password: req.body.password
+      });
+  
+      if (user) {
+        // Convert the Mongoose model to a plain JavaScript object
+        const userData = user.toObject();
+  
+        const token = jwt.sign(
+          {
+            email: userData.email,
+            full_name: userData.full_name
+          },
+          'secret123'
+        );
+  
+        return res.json({ status: 'ok', user: token, userdata: userData });
+      } else {
+        return res.json({ status: 'error', user: true });
+      }
     } catch (error) {
-        console.error('An error occurred', error);
+      console.error('An error occurred', error);
+      return res.status(500).json({ status: 'error', message: 'Internal server error' });
     }
-})
+  });
+  
 
 
 
