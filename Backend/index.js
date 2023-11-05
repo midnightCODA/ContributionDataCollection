@@ -241,7 +241,7 @@ app.post('/login', (req, res) => {
             )
 
             // HERE WE RETURN THE TOKEN INSTEAD OF USER DATA
-            return res.json({ status: 'ok', user: token })
+            return res.json({ status: 'ok', user: token , userdata: user })
         } else {
             return res.json({ status: 'error', user: true })
         }
