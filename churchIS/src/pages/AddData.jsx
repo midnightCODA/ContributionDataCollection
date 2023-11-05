@@ -160,7 +160,7 @@ const AddData = () => {
         <Navbar />
       </div>
       <div>
-        <div className='flex flex-wrap justify-center mt-5'>
+        <div className='flex flex-wrap justify-center pt-12'>
           <div className='w-760 bg-secondary-dark-bg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 shadow-lg'>
 
             <div className='mt-5'>

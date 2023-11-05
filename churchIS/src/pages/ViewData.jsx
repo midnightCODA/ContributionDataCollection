@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Header, Navbar, PublicNav } from '../components'
+import { Header, Navbar, Footer, PublicNav } from '../components'
 import { GridComponent, ColumnsDirective, ColumnDirective, Resize, Selection, ExcelExport, Sort, ContextMenu, Filter, Toolbar, Page, Search, Edit, Inject } from '@syncfusion/ej2-react-grids'
 import '../App.css'
 import { registerLicense } from '@syncfusion/ej2-base';
@@ -74,14 +74,13 @@ const ViewData = () => {
     <main className='relative bg-main-dark-bg '>
 
 
-
-      <div className='gradient' />
-
       <div className=''>
         <Navbar />
       </div>
+      
 
-      <div className=' w-full flex justify-center items-center flex-col mt-8'>
+
+      <div className=' w-full flex justify-center items-center flex-col pt-10'>
 
         <h1 className='head_text p-3'>
           Kanisa la Moraivan - Ushirika wa Ukonga <br className='max-md:hidden' />
@@ -108,7 +107,6 @@ const ViewData = () => {
             width={`${variableValue}`}
             toolbarClick={toolbarClick}
             ref={g => grid = g}
-
           >
             <ColumnsDirective
             >
@@ -123,6 +121,9 @@ const ViewData = () => {
         </div>
 
       </div>
+
+      <Footer />
+
     </main>
   )
 }

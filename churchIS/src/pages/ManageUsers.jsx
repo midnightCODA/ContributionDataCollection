@@ -73,12 +73,16 @@ if (screenWidth < 768) {
   return (
 
     <main className='relative'>
-      <div className=''>
-        <Navbar />
-      </div>
+
+    <div className=''>
+    <Navbar />
+    </div>
+
+    <div className='pt-12'>
+
 
       
-      <div className=' w-full flex justify-center items-center flex-col mt-8'>
+      <div className=' w-full flex justify-center items-center flex-col'>
 
         <h1 className='head_text p-3'>
           Page ya kusimamia watumaji wa mfumo <br className='max-md:hidden' />
@@ -121,6 +125,7 @@ if (screenWidth < 768) {
 
       <Footer />
 
+      </div>
     </main>
   )
 }
