@@ -33,7 +33,7 @@ const CreateUser = () => {
   }, [])
 
   const [scisuserid, setScisuserid] = useState('');
-  const [password, setPassword] = useState('moraivanuser');
+  const [password, setPassword] = useState('moravianuser');
   const [username, setUsername] = useState('');
   const [Role, setRole] = useState('')
 

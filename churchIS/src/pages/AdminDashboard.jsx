@@ -60,7 +60,7 @@ const AdminDashboard = () => {
             <div class="grid items-center gap-12 lg:grid-cols-2">
               <div class="mt-12 lg:mt-0">
                 <h3 class="mt-1 mb-5 text-4xl text-white font-bold tracking-tight md:text-6xl xl:text-6xl">
-                  Kanisa la Moraivan, <br /><span class="text-primary">Ushirika wa Ukonga</span> <br />
+                  Kanisa la Moravian, <br /><span class="text-primary">Ushirika wa Ukonga</span> <br />
                   <span className='blue_gradient '> Jumuiya ya Stakishari</span>
                 </h3>
                 <p className='text-white font-semibold mb-5'>

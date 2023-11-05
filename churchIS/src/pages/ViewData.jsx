@@ -83,7 +83,7 @@ const ViewData = () => {
       <div className=' w-full flex justify-center items-center flex-col pt-10'>
 
         <h1 className='head_text p-3'>
-          Kanisa la Moraivan - Ushirika wa Ukonga <br className='max-md:hidden' />
+          Kanisa la Moravian - Ushirika wa Ukonga <br className='max-md:hidden' />
           <span className='blue_gradient '>Jumuiya ya Stakishari</span>
         </h1>
 

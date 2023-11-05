@@ -12,7 +12,7 @@ const Footer = () => (
           <aside>
             <img src={logo} className='md:w-16 h-16 mb-4 ' />
             <p className='text-white font-semibold'>Jumuiya ya Stakishari.
-            <br />Kanisa la Moraivan,
+            <br />Kanisa la Moravian,
             Ushirika wa Ukonga
             <br />
             </p>
