@@ -240,9 +240,9 @@ app.post('/login', async (req, res) => {
 
     if (user) {
       // Check if the provided password matches the stored hashed password
-     //   const isPasswordValid = await bcrypt.compare(password, user.password);
+       const isPasswordValid = await bcrypt.compare(password, user.password);
 
-      if (password === user.password) {
+      if (isPasswordValid) {
         // Password is correct
         const userData = user.toObject();
 
