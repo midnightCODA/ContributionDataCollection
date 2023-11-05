@@ -1,4 +1,6 @@
 const express = require('express')
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const app = express()
 const port = 3300
 const cors = require('cors');
@@ -91,27 +93,37 @@ app.get('/allusers', async (req, res) => {
 
 // create users
 app.post('/register', async (req, res) => {
-
     console.log(req.body);
-
+  
     try {
-        const user = await User.create({
-            full_name: req.body.full_name,
-            email: req.body.email,
-            password: req.body.password,
-            role: req.body.role
-        })
-
-        if (user) {
-            console.log(`sucessfully created a user ${user}`);
-        } else {
-            console.log('user was not created sucessfully')
-        }
-
+      const existingUser = await User.findOne({ email: req.body.email });
+  
+      if (existingUser) {
+        return res.status(409).json({ status: 'error', message: 'Email is already in use' });
+      }
+  
+      const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+  
+      const user = await User.create({
+        full_name: req.body.full_name,
+        email: req.body.email,
+        password: hashedPassword,
+        role: req.body.role
+      });
+  
+      if (user) {
+        console.log(`Successfully created a user: ${user}`);
+        return res.json({ status: 'ok', message: 'User registered successfully' });
+      } else {
+        console.log('User was not created successfully');
+        return res.status(500).json({ status: 'error', message: 'Failed to create a user' });
+      }
     } catch (error) {
-        console.error('An error occurred', error);
+      console.error('An error occurred', error);
+      return res.status(500).json({ status: 'error', message: 'Internal server error' });
     }
-})
+  });
+  
 
 
 // CONTRIBUTIONS
@@ -255,6 +267,41 @@ app.post('/login', async (req, res) => {
   }
 });
 
+
+app.post('/changepassword', async (req, res) => {
+    console.log(req.body);
+  
+    const { email, oldPassword, newPassword } = req.body;
+  
+    try {
+      const user = await User.findOne({ email });
+  
+      if (user) {
+        // Compare the provided old password with the stored hashed password
+        const isPasswordValid = await bcrypt.compare(oldPassword, user.password);
+  
+        if (isPasswordValid) {
+          // Hash the new password before updating it
+          const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+  
+          // Update the user's password with the new hashed password
+          await User.updateOne(
+            { email: email },
+            { password: hashedPassword }
+          );
+  
+          return res.json({ status: 'ok', message: 'Password changed successfully' });
+        } else {
+          return res.status(401).json({ status: 'error', message: 'Invalid password' });
+        }
+      } else {
+        return res.status(401).json({ status: 'error', message: 'User not found' });
+      }
+    } catch (error) {
+      console.error('An error occurred', error);
+      return res.status(500).json({ status: 'error', message: 'Internal server error' });
+    }
+  });
   
 
 
