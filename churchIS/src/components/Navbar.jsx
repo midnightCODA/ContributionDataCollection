@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Import Link from React Router
 import { hamburger } from '../assets/icons';
-import { navLinks } from '../constants';
+import { navLinks, normalUserLinks } from '../constants';
 import logo from '../assets/saving.png';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [style, setStyle] = useState('');
   const [hidden, setHidden] = useState('hidden');
+  const [links, setLinks] = useState([])
 
   function toggleDash() {
     // Check the current style and toggle it on each click
@@ -22,8 +23,19 @@ const Navbar = () => {
 
   function logout() {
     localStorage.removeItem('token');
-    window.location.href = '/';
+    localStorage.removeItem('userdata');
+    window.location.href = '/login';
   }
+
+  const userData = JSON.parse(localStorage.getItem('userdata'));
+
+  useEffect(() => {
+    if (userData && userData.role === 'admin') {
+      setLinks(navLinks);
+    } else {
+      setLinks(normalUserLinks);
+    }
+  }, [userData]);
 
   return (
     <div className="fixed md:static bg-main-dark-bg dark:bg-main-dark-bg text-white navbar w-full">
@@ -38,9 +50,9 @@ const Navbar = () => {
           />
         </Link>
         <ul className={`flex flex-auto gap-5 ${style}  max-md:${hidden}`}>
-          {navLinks.map((item) => (
+          {links.map((item) => (
             <li key={item.label}>
-              <Link to={item.href} className="font-montserrat leading-normal w-full text-lg text-slate-gray">
+              <Link to={item.href} className="font-montserrat leading-normal w-full text-md text-slate-gray">
                 {item.label}
               </Link>
             </li>

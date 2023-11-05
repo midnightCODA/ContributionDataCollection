@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "../components";
-import { Link } from 'react-router-dom';
-import logo from '../assets/saving.png';
 import {Navbar} from "../components";
 
 export const CreateType = () => {
@@ -10,7 +7,7 @@ export const CreateType = () => {
         const token = localStorage.getItem('token')
         if(!token){
               localStorage.removeItem('token')
-              window.location.href = '/'
+              window.location.href = '/login'
         }
       }, [])
 

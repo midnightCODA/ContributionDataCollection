@@ -39,6 +39,7 @@ const ViewData = () => {
     }
   }, [])
 
+
   useEffect(() => {
 
     const fetchData = async () => {

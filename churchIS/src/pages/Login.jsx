@@ -45,13 +45,14 @@ const Login = () => {
 
       const data = await response.json();
 
-      if (data.user) {
+      if (data.status === 'ok') {
 
-        localStorage.setItem('token', data.user)
+        localStorage.setItem('token', data.user);
+        localStorage.setItem('userdata', JSON.stringify(data.userdata));
         window.location.href = '/dashboard'
 
       } else {
-        alert('please check your user and password')
+        alert(`Failed to login: ${data.message}`);
       }
     } catch (error) {
       console.error('An error occurred', error);

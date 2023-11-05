@@ -54,9 +54,8 @@ const AddData = () => {
     const token = localStorage.getItem('token')
     if (!token) {
       localStorage.removeItem('token')
-      window.location.href = '/'
+      window.location.href = '/login'
     }
-
   }, [])
 
 
@@ -87,9 +86,6 @@ const AddData = () => {
 
     fetchData();
   }, []);
-
-
-
 
 
   const handlenameChange = (e) => {

@@ -28,13 +28,12 @@ const CreateUser = () => {
     const token = localStorage.getItem('token')
     if(!token){
           localStorage.removeItem('token')
-          window.location.href = '/'
+          window.location.href = '/login'
     }
   }, [])
 
-
   const [scisuserid, setScisuserid] = useState('');
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('moravianuser');
   const [username, setUsername] = useState('');
   const [Role, setRole] = useState('')
 
@@ -79,10 +78,10 @@ const CreateUser = () => {
   return (
 
     <main className='relative'>
-    <div className='flex py-5'>
+
+      <div className='flex py-5'>
         <Navbar />
       </div>
-
 
     <div>
       <div className='flex flex-wrap justify-center  mt-5'>
@@ -114,7 +113,7 @@ const CreateUser = () => {
 
                 <SelectField 
                 label='Role' 
-                options={[{name: 'System Admin'}, {name: 'user'} ]}
+                options={[{name: 'admin'}, {name: 'user'} ]}
                 required
                 onChange={(e) => handleInputChange(e, setRole)}
                 value={Role}
@@ -124,9 +123,9 @@ const CreateUser = () => {
                 <input
                   className='w-[90%] text-white bg-main-dark-bg dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
                 
-                  type='password'
+                  type='text'
                   value={password}
-                  required
+                  disabled
                   onChange={(e) => handleInputChange(e, setPassword)}
                 />
 

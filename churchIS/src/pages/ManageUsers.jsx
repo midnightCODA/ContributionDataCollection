@@ -22,7 +22,7 @@ if (screenWidth < 768) {
     const token = localStorage.getItem('token')
     if(!token){
           localStorage.removeItem('token')
-          window.location.href = '/'
+          window.location.href = '/login'
     }
   }, [])
 
@@ -81,7 +81,7 @@ if (screenWidth < 768) {
       <div className=' w-full flex justify-center items-center flex-col mt-8'>
 
         <h1 className='head_text p-3'>
-          Manage users<br className='max-md:hidden' />
+          Page ya kusimamia watumaji wa mfumo <br className='max-md:hidden' />
         </h1>
 
 
