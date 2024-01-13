@@ -132,7 +132,7 @@ app.post('/register', async (req, res) => {
 app.get('/allcontributions', async (req, res) => {
     try {
         // Assuming you have a model named "User" that represents your users
-        const allContributions = await Contribution.find(); // Use the appropriate method to fetch all users
+        const allContributions = await Contribution.find().populate('contributionOf'); // Use the appropriate method to fetch all users
 
         if (allContributions) {
             res.status(200).json(allContributions); // Return the users as JSON response

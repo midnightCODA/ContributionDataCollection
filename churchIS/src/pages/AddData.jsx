@@ -30,7 +30,7 @@ const SelectField = ({ label, options, onChange, value, required }) => {
         onChange={onChange} required={required} value={value}>
         <option value=''></option>
         {options?.map((item) => (
-          <option key={item.name} value={item.name}>
+          <option key={item.name} value={item._id}>
             {item.name}
           </option>
         ))}
