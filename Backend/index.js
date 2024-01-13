@@ -161,7 +161,8 @@ app.post('/createcontribution', async (req, res) => {
             gender: req.body.gender,
             title: req.body.title,
             contact: req.body.contact,
-            amount: req.body.amount
+            amount: req.body.amount,
+            contributionOf: req.body.contributionType
         });
 
         if (contribution) {

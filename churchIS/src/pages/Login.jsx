@@ -30,6 +30,7 @@ const Login = () => {
     const body = {
       email: scisuserid,
       password: password,
+      
     }
 
     console.log(body);

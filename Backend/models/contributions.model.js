@@ -7,7 +7,8 @@ const contributionSchema = new mongoose.Schema(
         title: { type: String },
         contact: { type: String },
         amount: { type: Number },
-        contributionType: { type: String }
+        contributionType: { type: String },
+        contributionOf: { type: mongoose.Schema.Types.ObjectId, ref: 'contributionsOf', required: true }
     },
     {
         collection: 'contributions' // You can specify the collection name here

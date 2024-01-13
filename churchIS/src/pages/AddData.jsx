@@ -43,6 +43,9 @@ const SelectField = ({ label, options, onChange, value, required }) => {
 const AddData = () => {
 
   const [name, setName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [middleName, setMiddleName] = useState('')
+  const [Surname, setSurname] = useState('')
   const [gender, setGender] = useState('')
   const [title, setTitle] = useState('')
   const [contact, setContact] = useState('')
@@ -93,6 +96,18 @@ const AddData = () => {
     setName(e.target.value);
   };
 
+  const handlefirstnameChange = (e) => {
+    setFirstName(e.target.value);
+  }
+
+  const handlemiddlenameChange = (e) => {
+    setMiddleName(e.target.value);
+  }
+
+  const handlesurnameChange = (e) => {
+    setSurname(e.target.value);
+  }
+
   const handlegenderChange = (e) => {
     setGender(e.target.value);
   };
@@ -114,15 +129,16 @@ const AddData = () => {
   };
 
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
+
     const body = {
-      full_name: name,
+      full_name: firstName + ' ' + middleName + ' ' + Surname,
       gender: gender,
       title: title,
       contact: contact,
       amount: amount,
       contributionType: contributionType,
-
     };
 
     console.log(body);
@@ -153,6 +169,7 @@ const AddData = () => {
 
 
 
+
   return (
 
     <main className='relative'>
@@ -165,8 +182,8 @@ const AddData = () => {
 
             <div className='mt-5'>
               <div className='mt-8'>
-                
-               <p className='font-semibold text-lg text-white justify-center mb-8'>Andika Mchango Mpya</p>
+
+                <p className='font-semibold text-lg text-white justify-center mb-8'>Andika Mchango Mpya</p>
 
 
                 <form onSubmit={handleSubmit}>
@@ -177,9 +194,11 @@ const AddData = () => {
                     options={contributionTypeOptions}
                     value={contributionType}
                     onChange={handleContributionTypeChange}
-                    
+
                   />
-                  <InputField label="Jina Kamili" className='text-white' type="text" value={name} onChange={handlenameChange} required />
+                  <InputField label="Jina la kwanza" className='text-white' type="text" value={firstName} onChange={handlefirstnameChange} required />
+                  <InputField label="Jina la kati" className='text-white' type="text" value={middleName} onChange={handlemiddlenameChange} />
+                  <InputField label="Jina la mwisho" className='text-white' type="text" value={Surname} onChange={handlesurnameChange} required />
                   <SelectField
                     label='Jinsia'
                     options={[{ name: 'Mme' }, { name: 'Mke' }]}
