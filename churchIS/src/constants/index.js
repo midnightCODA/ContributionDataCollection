@@ -2,7 +2,7 @@
 export const navLinks = [
     { href: "/dashboard", label: "Home" },
     { href: "/", label: "Michango" },
-    { href: "/adddata", label: "weka mchango" },
+    { href: "/adddata", label: "Ingiza mchango" },
     { href: "/createtype", label: "Mchango mpya" },
     { href: "/createuser", label: "Tengeneza users" },
     { href: "/manageusers", label: "Management" },

@@ -196,12 +196,12 @@ const AddData = () => {
                     onChange={handleContributionTypeChange}
 
                   />
-                  <InputField label="Jina la kwanza" className='text-white' type="text" value={firstName} onChange={handlefirstnameChange} required />
-                  <InputField label="Jina la kati" className='text-white' type="text" value={middleName} onChange={handlemiddlenameChange} />
-                  <InputField label="Jina la mwisho" className='text-white' type="text" value={Surname} onChange={handlesurnameChange} required />
+                  <InputField label="Jina la Kwanza" className='text-white' type="text" value={firstName} onChange={handlefirstnameChange} required />
+                  <InputField label="Jina la Kati" className='text-white' type="text" value={middleName} onChange={handlemiddlenameChange} />
+                  <InputField label="Jina la Mwisho" className='text-white' type="text" value={Surname} onChange={handlesurnameChange} required />
                   <SelectField
                     label='Jinsia'
-                    options={[{ name: 'Mme' }, { name: 'Mke' }]}
+                    options={[{ name: 'me' }, { name: 'ke' }]}
                     value={gender}
                     onChange={handlegenderChange}
                     required
