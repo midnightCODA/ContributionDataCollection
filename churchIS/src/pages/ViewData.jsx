@@ -115,6 +115,7 @@ const ViewData = () => {
               <ColumnDirective field='contact' minWidth='80' width='100' maxWidth='150' />
               <ColumnDirective field='gender' minWidth='80' width='100' maxWidth='150' />
               <ColumnDirective field='title' minWidth='80' width='100' maxWidth='150' />
+              <ColumnDirective field='contributionOf.name' headerText='contribution of' minWidth='80' width='100' maxWidth='150' />
             </ColumnsDirective>
             <Inject services={[Page, Search, Toolbar, Edit, Sort, Filter, ExcelExport, Resize]} />
           </GridComponent>
