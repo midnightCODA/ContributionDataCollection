@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const contributionSchema = new mongoose.Schema(
     {
         full_name: { type: String, required: true },
-        gender: { type: String, required: true },
+        gender: { type: String },
         title: { type: String },
         contact: { type: String },
         amount: { type: Number },
