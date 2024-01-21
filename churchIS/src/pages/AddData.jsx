@@ -85,7 +85,6 @@ const AddData = () => {
 
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         const response = await fetch('https://churchisbackend.onrender.com/contributionTypes', {
@@ -94,7 +93,7 @@ const AddData = () => {
             'Content-Type': 'application/json',
           },
         });
-
+  
         if (response.ok) {
           const responseData = await response.json();
           setContributionTypeOptions(responseData);
@@ -104,14 +103,9 @@ const AddData = () => {
         }
       } catch (error) {
         console.error('An error occurred', error);
-      } finally {
-        setLoading(false);      // use state is not defined for this 
       }
     };
-
-
-    // get the contributors data
-
+  
     const fetchContributors = async () => {
       try {
         const response = await fetch('http://churchisbackend.onrender.com/getcontributors', {
@@ -120,7 +114,7 @@ const AddData = () => {
             'Content-Type': 'application/json',
           },
         });
-
+  
         if (response.ok) {
           const contributorsData = await response.json();
           setContributors(contributorsData);
@@ -131,13 +125,20 @@ const AddData = () => {
       } catch (error) {
         console.error('An error occurred', error);
       } finally {
-        setLoading(false);  // use state is not defined for this
+        setLoading(false);
       }
     };
-
-
-    fetchData();
-    fetchContributors();
+  
+    const fetchDataAndContributors = async () => {
+      try {
+        setLoading(true);
+        await Promise.all([fetchData(), fetchContributors()]);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchDataAndContributors();
   }, []);
 
 
