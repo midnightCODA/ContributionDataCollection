@@ -129,7 +129,6 @@ app.post('/register', async (req, res) => {
         gender: req.body.gender,
         rank: req.body.rank,
         phone: req.body.phone
-
       });
   
       if (user) {
