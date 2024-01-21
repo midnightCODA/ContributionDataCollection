@@ -84,62 +84,63 @@ const AddData = () => {
   }, [])
 
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://churchisbackend.onrender.com/contributionTypes', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
   
-        if (response.ok) {
-          const responseData = await response.json();
-          setContributionTypeOptions(responseData);
-          console.log(responseData);
-        } else {
-          console.error('Failed to fetch contributors data');
-        }
-      } catch (error) {
-        console.error('An error occurred', error);
+// Fetch Contribution Types
+useEffect(() => {
+  const fetchContributionTypes = async () => {
+    try {
+      const response = await fetch('https://churchisbackend.onrender.com/contributionTypes', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        setContributionTypeOptions(responseData);
+        console.log(responseData);
+      } else {
+        console.error('Failed to fetch contribution types data');
       }
-    };
-  
-    const fetchContributors = async () => {
-      try {
-        const response = await fetch('http://churchisbackend.onrender.com/getcontributors', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-  
-        if (response.ok) {
-          const contributorsData = await response.json();
-          setContributors(contributorsData);
-          console.log(contributorsData);
-        } else {
-          console.error('Failed to fetch data');
-        }
-      } catch (error) {
-        console.error('An error occurred', error);
-      } finally {
-        setLoading(false);
+    } catch (error) {
+      console.error('An error occurred', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchContributionTypes();
+}, []);
+
+// Fetch Contributors
+useEffect(() => {
+  const fetchContributors = async () => {
+    try {
+      const response = await fetch('https://churchisbackend.onrender.com/getcontributors', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        const contributorsData = await response.json();
+        setContributors(contributorsData);
+        console.log(contributorsData);
+      } else {
+        console.error('Failed to fetch contributors data');
       }
-    };
-  
-    const fetchDataAndContributors = async () => {
-      try {
-        setLoading(true);
-        await Promise.all([fetchData(), fetchContributors()]);
-      } finally {
-        setLoading(false);
-      }
-    };
-  
-    fetchDataAndContributors();
-  }, []);
+    } catch (error) {
+      console.error('An error occurred', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchContributors();
+}, []);
+
 
 
   const handlenameChange = (e) => {
