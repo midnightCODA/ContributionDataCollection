@@ -114,7 +114,7 @@ const AddData = () => {
 
     const fetchContributors = async () => {
       try {
-        const response = await fetch('http://localhost:3300/getcontributors', {
+        const response = await fetch('http://churchisbackend.onrender.com/getcontributors', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
