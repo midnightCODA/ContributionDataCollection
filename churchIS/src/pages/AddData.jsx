@@ -39,6 +39,24 @@ const SelectField = ({ label, options, onChange, value, required }) => {
   );
 };
 
+const SelectFieldContributors = ({ label, options, onChange, value, required }) => {
+  return (
+    <div>
+      <p className='font-semibold text-md justify-center ml-4 mr-4 mt-2 text-white'>{label}:</p>
+      <select
+        className='w-[90%] bg-main-dark-bg text-white dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
+        onChange={onChange} required={required} value={value}>
+        <option value=''></option>
+        {options?.map((item) => (
+          <option key={item.name} value={item._id}>
+            {item.full_name}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+};
+
 
 const AddData = () => {
 
@@ -52,6 +70,9 @@ const AddData = () => {
   const [amount, setAmount] = useState('')
   const [contributionType, setContributionType] = useState('');
   const [contributionTypeOptions, setContributionTypeOptions] = useState([]);
+  const [contributors, setContributors] = useState([])
+  const [contributor, setContributor] = useState('')
+  const [loading, setLoading] = useState('True')
 
 
   useEffect(() => {
@@ -79,16 +100,44 @@ const AddData = () => {
           setContributionTypeOptions(responseData);
           console.log(responseData);
         } else {
+          console.error('Failed to fetch contributors data');
+        }
+      } catch (error) {
+        console.error('An error occurred', error);
+      } finally {
+        setLoading(false);      // use state is not defined for this 
+      }
+    };
+
+
+    // get the contributors data
+
+    const fetchContributors = async () => {
+      try {
+        const response = await fetch('http://localhost:3300/getcontributors', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (response.ok) {
+          const contributorsData = await response.json();
+          setContributors(contributorsData);
+          console.log(contributorsData);
+        } else {
           console.error('Failed to fetch data');
         }
       } catch (error) {
         console.error('An error occurred', error);
       } finally {
-        setLoading(false);
+        setLoading(false);  // use state is not defined for this
       }
     };
 
+
     fetchData();
+    fetchContributors();
   }, []);
 
 
@@ -120,23 +169,32 @@ const AddData = () => {
     setContact(e.target.value);
   };
 
-  const handleamountChange = (e) => {
-    setAmount(e.target.value);
+  const handleAmountChange = (e) => {
+    let inputValue = e.target.value;
+
+    // Remove non-numeric characters
+    inputValue = inputValue.replace(/\D/g, '');
+
+    // Limit the input to 10 characters
+    if (inputValue.length <= 10) {
+      setAmount(inputValue);
+    }
   };
 
   const handleContributionTypeChange = (e) => {
     setContributionType(e.target.value);
   };
 
+  const handleContributorChange = (e) => {
+    setContributor(e.target.value)
+  }
+
   const handleSubmit = async (e) => {
-    
+
     e.preventDefault();
 
     const body = {
-      full_name: firstName + ' ' + middleName + ' ' + Surname,
-      gender: gender,
-      title: title,
-      contact: contact,
+      user_id: contributor,
       amount: amount,
       contributionType: contributionType,
     };
@@ -190,12 +248,20 @@ const AddData = () => {
 
 
                   <SelectField
-                    label='Mchango wa'
+                    label='Mchango'
                     options={contributionTypeOptions}
                     value={contributionType}
                     onChange={handleContributionTypeChange}
-
                   />
+
+                  <SelectFieldContributors
+                    label='Mchangaji'
+                    options={contributors}
+                    value={contributor}
+                    onChange={handleContributorChange}
+                  />
+
+                  {/*
                   <InputField label="Jina la Kwanza" className='text-white' type="text" value={firstName} onChange={handlefirstnameChange} required />
                   <InputField label="Jina la Kati" className='text-white' type="text" value={middleName} onChange={handlemiddlenameChange} />
                   <InputField label="Jina la Mwisho" className='text-white' type="text" value={Surname} onChange={handlesurnameChange} required />
@@ -208,10 +274,18 @@ const AddData = () => {
                   />
                   <InputField label="Cheo" type="text" value={title} onChange={handletitleChange} required />
                   <InputField label="Namba ya simu" type="text" value={contact} onChange={handlecontactChange} required />
-                  <InputField label="Kiasi" type="number" value={amount} onChange={handleamountChange} required />
+
+                  */}
+
+                  <InputField
+                    label="Kiasi"
+                    type="text"  // Change type to text
+                    value={amount ? parseInt(amount).toLocaleString() : ''}  // Format the value using toLocaleString
+                    onChange={handleAmountChange}
+                    required
+                  />
 
                   <div className='mt-4 flex justify-center ' >
-
 
                     <input
                       value='Upload'

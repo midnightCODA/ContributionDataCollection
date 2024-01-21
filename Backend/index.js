@@ -89,6 +89,23 @@ app.get('/allusers', async (req, res) => {
     }
 });
 
+// get all users but return only full names and their user ids
+app.get('/getcontributors', async (req, res) => {
+  try {
+    const contributors = await User.find({}, '_id full_name'); // Specify the fields to retrieve
+
+    if (contributors.length > 0) {
+      res.status(200).json(contributors);
+    } else {
+      res.status(404).json({ message: 'No contributors found' });
+    }
+  } catch (error) {
+    console.error('An error occurred', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+
 
 
 // create users
@@ -108,7 +125,11 @@ app.post('/register', async (req, res) => {
         full_name: req.body.full_name,
         email: req.body.email,
         password: hashedPassword,
-        role: req.body.role
+        role: req.body.role,
+        gender: req.body.gender,
+        rank: req.body.rank,
+        phone: req.body.phone
+
       });
   
       if (user) {
@@ -152,31 +173,39 @@ app.get('/allcontributions', async (req, res) => {
 
 // Create a contribution
 app.post('/createcontribution', async (req, res) => {
+  console.log(req.body);
 
-    console.log(req.body);
+  try {
+      // Fetch contributor details
+      const contributorDetails = await User.findById(req.body.user_id);
 
-    try {
-        const contribution = await Contribution.create({
-            full_name: req.body.full_name,
-            gender: req.body.gender,
-            title: req.body.title,
-            contact: req.body.contact,
-            amount: req.body.amount,
-            contributionOf: req.body.contributionType
-        });
+      if (!contributorDetails) {
+          return res.status(404).json({ message: 'Contributor not found' });
+      }
 
-        if (contribution) {
-            console.log('Successfully created a contribution', contribution);
-            res.status(201).json({ message: 'Contribution created successfully', contribution });
-        } else {
-            console.log('Contribution creation failed');
-            res.status(400).json({ message: 'Contribution creation failed' });
-        }
-    } catch (error) {
-        console.error('An error occurred', error);
-        res.status(500).json({ message: 'Internal server error' });
-    }
+      // Create contribution
+      const contribution = await Contribution.create({
+          full_name: contributorDetails.full_name,
+          gender: contributorDetails.gender,
+          title: contributorDetails.title,
+          contact: contributorDetails.contact,
+          amount: req.body.amount,
+          contributionOf: req.body.contributionType
+      });
+
+      if (contribution) {
+          console.log('Successfully created a contribution', contribution);
+          res.status(201).json({ message: 'Contribution created successfully', contribution });
+      } else {
+          console.log('Contribution creation failed');
+          res.status(400).json({ message: 'Contribution creation failed' });
+      }
+  } catch (error) {
+      console.error('An error occurred', error);
+      res.status(500).json({ message: 'Internal server error' });
+  }
 });
+
 
 // ...
 
