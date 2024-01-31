@@ -75,7 +75,7 @@ const AdminDashboard = () => {
                 <input
                 value='Angalia michango'
                 type="submit"
-                className="w-[40%] max-md:w-[60%] blue_bg_gradient text-white font-bold p-3 mt-4 rounded-lg hover:w-[73%]"
+                className="w-[40%] max-md:w-[60%] blue_bg_gradient text-white font-bold p-3 mt-4 rounded-lg hover:w-[42%]"
                 />
                 </Link>
                

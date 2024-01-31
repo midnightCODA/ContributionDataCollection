@@ -187,7 +187,7 @@ app.post('/createcontribution', async (req, res) => {
       const contribution = await Contribution.create({
           full_name: contributorDetails.full_name,
           gender: contributorDetails.gender,
-          title: contributorDetails.rank,
+          title: contributorDetails.rankyou,
           contact: contributorDetails.phone,
           amount: req.body.amount,
           contributionOf: req.body.contributionType

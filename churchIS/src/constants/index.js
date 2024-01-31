@@ -4,8 +4,8 @@ export const navLinks = [
     { href: "/", label: "Michango" },
     { href: "/adddata", label: "Ingiza mchango" },
     { href: "/createtype", label: "Mchango mpya" },
-    { href: "/createuser", label: "Tengeneza users" },
-    { href: "/manageusers", label: "Management" },
+    { href: "/createuser", label: "Mtumiaji mpya" },
+    { href: "/manageusers", label: "Usimamizi" },
 ];
 
 export const normalUserLinks = [

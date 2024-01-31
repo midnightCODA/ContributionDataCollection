@@ -9,9 +9,9 @@ import { Navbar } from "../components";
 
 const InputField = ({ label, type, value, onChange, required }) => (
   <div>
-    <p className='font-semibold text-md justify-center ml-4 mr-4 mt-2 text-white'>{label}:</p>
+    <p className='font-bold text-xl justify-center mt-4  mb-2 text-white'>{label}:</p>
     <input
-      className='w-[90%] bg-main-dark-bg text-white dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
+      className='w-[100%] bg-main-dark-bg text-white dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 '
       type={type}
       value={value}
       onChange={onChange}
@@ -24,9 +24,9 @@ const InputField = ({ label, type, value, onChange, required }) => (
 const SelectField = ({ label, options, onChange, value, required }) => {
   return (
     <div>
-      <p className='font-semibold text-md justify-center ml-4 mr-4 mt-2 text-white'>{label}:</p>
+      <p className='font-bold text-xl justify-center mt-4 mb-2 text-white'>{label}:</p>
       <select
-        className='w-[90%] bg-main-dark-bg text-white dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
+        className='w-[100%] bg-main-dark-bg text-white dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 '
         onChange={onChange} required={required} value={value}>
         <option value=''></option>
         {options?.map((item) => (
@@ -42,9 +42,9 @@ const SelectField = ({ label, options, onChange, value, required }) => {
 const SelectFieldContributors = ({ label, options, onChange, value, required }) => {
   return (
     <div>
-      <p className='font-semibold text-md justify-center ml-4 mr-4 mt-2 text-white'>{label}:</p>
+      <p className='font-bold text-xl justify-center  mt-4 mb-2 text-white'>{label}:</p>
       <select
-        className='w-[90%] bg-main-dark-bg text-white dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 ml-4 mr-4'
+        className='w-[100%] bg-main-dark-bg text-white dark:text-gray-200 dark:bg-input-gray rounded-2xl p-3 mt-1 '
         onChange={onChange} required={required} value={value}>
         <option value=''></option>
         {options?.map((item) => (
@@ -241,12 +241,12 @@ useEffect(() => {
           <div className='w-760 bg-secondary-dark-bg dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 shadow-lg'>
 
             <div className='mt-5'>
-              <div className='mt-8'>
+              <div className='w-full'>
 
-                <p className='font-semibold text-lg text-white justify-center mb-8'>Andika Mchango Mpya</p>
+                <p className='font-semibold text-xl text-center text-white justify-center mb-8'>Andika Mchango Mpya</p>
 
 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="flex flex-col w-full justify-center ">
 
 
                   <SelectField
@@ -290,9 +290,9 @@ useEffect(() => {
                   <div className='mt-4 flex justify-center ' >
 
                     <input
-                      value='Upload'
+                      value='Maliza'
                       type="submit"
-                      className="w-[70%] blue_bg_gradient text-white font-bold p-3 mt-4 rounded-lg hover:w-[73%]"
+                      className="w-[70%] blue_bg_gradient text-white font-bold p-3 mt-4 rounded-lg hover:w-[72%] "
                     />
 
 
