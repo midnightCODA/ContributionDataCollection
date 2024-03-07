@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const app = express()
 const port = 3300
+
 const cors = require('cors');
 const jwt = require('jsonwebtoken')
 const { default: mongoose } = require('mongoose');
